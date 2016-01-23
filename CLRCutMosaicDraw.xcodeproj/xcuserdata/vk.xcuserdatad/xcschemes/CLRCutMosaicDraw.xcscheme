@@ -5,6 +5,22 @@
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "542C4F761C5328A200356873"
+               BuildableName = "CLRCutMosaicDraw.app"
+               BlueprintName = "CLRCutMosaicDraw"
+               ReferencedContainer = "container:CLRCutMosaicDraw.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
    </BuildAction>
    <TestAction
       buildConfiguration = "Debug"
@@ -12,7 +28,36 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "542C4F8F1C5328A200356873"
+               BuildableName = "CLRCutMosaicDrawTests.xctest"
+               BlueprintName = "CLRCutMosaicDrawTests"
+               ReferencedContainer = "container:CLRCutMosaicDraw.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "542C4F9A1C5328A200356873"
+               BuildableName = "CLRCutMosaicDrawUITests.xctest"
+               BlueprintName = "CLRCutMosaicDrawUITests"
+               ReferencedContainer = "container:CLRCutMosaicDraw.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "542C4F761C5328A200356873"
+            BuildableName = "CLRCutMosaicDraw.app"
+            BlueprintName = "CLRCutMosaicDraw"
+            ReferencedContainer = "container:CLRCutMosaicDraw.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -26,6 +71,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "542C4F761C5328A200356873"
+            BuildableName = "CLRCutMosaicDraw.app"
+            BlueprintName = "CLRCutMosaicDraw"
+            ReferencedContainer = "container:CLRCutMosaicDraw.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -35,6 +90,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "542C4F761C5328A200356873"
+            BuildableName = "CLRCutMosaicDraw.app"
+            BlueprintName = "CLRCutMosaicDraw"
+            ReferencedContainer = "container:CLRCutMosaicDraw.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
