@@ -1,0 +1,519 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		542C4F7C1C5328A200356873 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 542C4F7B1C5328A200356873 /* main.m */; };
+		542C4F7F1C5328A200356873 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 542C4F7E1C5328A200356873 /* AppDelegate.m */; };
+		542C4F821C5328A200356873 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 542C4F811C5328A200356873 /* ViewController.m */; };
+		542C4F851C5328A200356873 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 542C4F831C5328A200356873 /* Main.storyboard */; };
+		542C4F871C5328A200356873 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 542C4F861C5328A200356873 /* Assets.xcassets */; };
+		542C4F8A1C5328A200356873 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 542C4F881C5328A200356873 /* LaunchScreen.storyboard */; };
+		542C4F951C5328A200356873 /* CLRCutMosaicDrawTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 542C4F941C5328A200356873 /* CLRCutMosaicDrawTests.m */; };
+		542C4FA01C5328A200356873 /* CLRCutMosaicDrawUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 542C4F9F1C5328A200356873 /* CLRCutMosaicDrawUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		542C4F911C5328A200356873 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 542C4F6F1C5328A200356873 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 542C4F761C5328A200356873;
+			remoteInfo = CLRCutMosaicDraw;
+		};
+		542C4F9C1C5328A200356873 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 542C4F6F1C5328A200356873 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 542C4F761C5328A200356873;
+			remoteInfo = CLRCutMosaicDraw;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		542C4F771C5328A200356873 /* CLRCutMosaicDraw.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CLRCutMosaicDraw.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		542C4F7B1C5328A200356873 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		542C4F7D1C5328A200356873 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		542C4F7E1C5328A200356873 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		542C4F801C5328A200356873 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		542C4F811C5328A200356873 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		542C4F841C5328A200356873 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		542C4F861C5328A200356873 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		542C4F891C5328A200356873 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		542C4F8B1C5328A200356873 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		542C4F901C5328A200356873 /* CLRCutMosaicDrawTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CLRCutMosaicDrawTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		542C4F941C5328A200356873 /* CLRCutMosaicDrawTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CLRCutMosaicDrawTests.m; sourceTree = "<group>"; };
+		542C4F961C5328A200356873 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		542C4F9B1C5328A200356873 /* CLRCutMosaicDrawUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CLRCutMosaicDrawUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		542C4F9F1C5328A200356873 /* CLRCutMosaicDrawUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CLRCutMosaicDrawUITests.m; sourceTree = "<group>"; };
+		542C4FA11C5328A200356873 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		542C4F741C5328A200356873 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		542C4F8D1C5328A200356873 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		542C4F981C5328A200356873 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		542C4F6E1C5328A200356873 = {
+			isa = PBXGroup;
+			children = (
+				542C4F791C5328A200356873 /* CLRCutMosaicDraw */,
+				542C4F931C5328A200356873 /* CLRCutMosaicDrawTests */,
+				542C4F9E1C5328A200356873 /* CLRCutMosaicDrawUITests */,
+				542C4F781C5328A200356873 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		542C4F781C5328A200356873 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				542C4F771C5328A200356873 /* CLRCutMosaicDraw.app */,
+				542C4F901C5328A200356873 /* CLRCutMosaicDrawTests.xctest */,
+				542C4F9B1C5328A200356873 /* CLRCutMosaicDrawUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		542C4F791C5328A200356873 /* CLRCutMosaicDraw */ = {
+			isa = PBXGroup;
+			children = (
+				542C4F7D1C5328A200356873 /* AppDelegate.h */,
+				542C4F7E1C5328A200356873 /* AppDelegate.m */,
+				542C4F801C5328A200356873 /* ViewController.h */,
+				542C4F811C5328A200356873 /* ViewController.m */,
+				542C4F831C5328A200356873 /* Main.storyboard */,
+				542C4F861C5328A200356873 /* Assets.xcassets */,
+				542C4F881C5328A200356873 /* LaunchScreen.storyboard */,
+				542C4F8B1C5328A200356873 /* Info.plist */,
+				542C4F7A1C5328A200356873 /* Supporting Files */,
+			);
+			path = CLRCutMosaicDraw;
+			sourceTree = "<group>";
+		};
+		542C4F7A1C5328A200356873 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				542C4F7B1C5328A200356873 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		542C4F931C5328A200356873 /* CLRCutMosaicDrawTests */ = {
+			isa = PBXGroup;
+			children = (
+				542C4F941C5328A200356873 /* CLRCutMosaicDrawTests.m */,
+				542C4F961C5328A200356873 /* Info.plist */,
+			);
+			path = CLRCutMosaicDrawTests;
+			sourceTree = "<group>";
+		};
+		542C4F9E1C5328A200356873 /* CLRCutMosaicDrawUITests */ = {
+			isa = PBXGroup;
+			children = (
+				542C4F9F1C5328A200356873 /* CLRCutMosaicDrawUITests.m */,
+				542C4FA11C5328A200356873 /* Info.plist */,
+			);
+			path = CLRCutMosaicDrawUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		542C4F761C5328A200356873 /* CLRCutMosaicDraw */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 542C4FA41C5328A200356873 /* Build configuration list for PBXNativeTarget "CLRCutMosaicDraw" */;
+			buildPhases = (
+				542C4F731C5328A200356873 /* Sources */,
+				542C4F741C5328A200356873 /* Frameworks */,
+				542C4F751C5328A200356873 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CLRCutMosaicDraw;
+			productName = CLRCutMosaicDraw;
+			productReference = 542C4F771C5328A200356873 /* CLRCutMosaicDraw.app */;
+			productType = "com.apple.product-type.application";
+		};
+		542C4F8F1C5328A200356873 /* CLRCutMosaicDrawTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 542C4FA71C5328A200356873 /* Build configuration list for PBXNativeTarget "CLRCutMosaicDrawTests" */;
+			buildPhases = (
+				542C4F8C1C5328A200356873 /* Sources */,
+				542C4F8D1C5328A200356873 /* Frameworks */,
+				542C4F8E1C5328A200356873 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				542C4F921C5328A200356873 /* PBXTargetDependency */,
+			);
+			name = CLRCutMosaicDrawTests;
+			productName = CLRCutMosaicDrawTests;
+			productReference = 542C4F901C5328A200356873 /* CLRCutMosaicDrawTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		542C4F9A1C5328A200356873 /* CLRCutMosaicDrawUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 542C4FAA1C5328A200356873 /* Build configuration list for PBXNativeTarget "CLRCutMosaicDrawUITests" */;
+			buildPhases = (
+				542C4F971C5328A200356873 /* Sources */,
+				542C4F981C5328A200356873 /* Frameworks */,
+				542C4F991C5328A200356873 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				542C4F9D1C5328A200356873 /* PBXTargetDependency */,
+			);
+			name = CLRCutMosaicDrawUITests;
+			productName = CLRCutMosaicDrawUITests;
+			productReference = 542C4F9B1C5328A200356873 /* CLRCutMosaicDrawUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		542C4F6F1C5328A200356873 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = clover;
+				TargetAttributes = {
+					542C4F761C5328A200356873 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					542C4F8F1C5328A200356873 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = 542C4F761C5328A200356873;
+					};
+					542C4F9A1C5328A200356873 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = 542C4F761C5328A200356873;
+					};
+				};
+			};
+			buildConfigurationList = 542C4F721C5328A200356873 /* Build configuration list for PBXProject "CLRCutMosaicDraw" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 542C4F6E1C5328A200356873;
+			productRefGroup = 542C4F781C5328A200356873 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				542C4F761C5328A200356873 /* CLRCutMosaicDraw */,
+				542C4F8F1C5328A200356873 /* CLRCutMosaicDrawTests */,
+				542C4F9A1C5328A200356873 /* CLRCutMosaicDrawUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		542C4F751C5328A200356873 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				542C4F8A1C5328A200356873 /* LaunchScreen.storyboard in Resources */,
+				542C4F871C5328A200356873 /* Assets.xcassets in Resources */,
+				542C4F851C5328A200356873 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		542C4F8E1C5328A200356873 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		542C4F991C5328A200356873 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		542C4F731C5328A200356873 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				542C4F821C5328A200356873 /* ViewController.m in Sources */,
+				542C4F7F1C5328A200356873 /* AppDelegate.m in Sources */,
+				542C4F7C1C5328A200356873 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		542C4F8C1C5328A200356873 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				542C4F951C5328A200356873 /* CLRCutMosaicDrawTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		542C4F971C5328A200356873 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				542C4FA01C5328A200356873 /* CLRCutMosaicDrawUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		542C4F921C5328A200356873 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 542C4F761C5328A200356873 /* CLRCutMosaicDraw */;
+			targetProxy = 542C4F911C5328A200356873 /* PBXContainerItemProxy */;
+		};
+		542C4F9D1C5328A200356873 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 542C4F761C5328A200356873 /* CLRCutMosaicDraw */;
+			targetProxy = 542C4F9C1C5328A200356873 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		542C4F831C5328A200356873 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				542C4F841C5328A200356873 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		542C4F881C5328A200356873 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				542C4F891C5328A200356873 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		542C4FA21C5328A200356873 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		542C4FA31C5328A200356873 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		542C4FA51C5328A200356873 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = CLRCutMosaicDraw/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = clover.CLRCutMosaicDraw;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		542C4FA61C5328A200356873 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = CLRCutMosaicDraw/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = clover.CLRCutMosaicDraw;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		542C4FA81C5328A200356873 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = CLRCutMosaicDrawTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = clover.CLRCutMosaicDrawTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CLRCutMosaicDraw.app/CLRCutMosaicDraw";
+			};
+			name = Debug;
+		};
+		542C4FA91C5328A200356873 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = CLRCutMosaicDrawTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = clover.CLRCutMosaicDrawTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CLRCutMosaicDraw.app/CLRCutMosaicDraw";
+			};
+			name = Release;
+		};
+		542C4FAB1C5328A200356873 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = CLRCutMosaicDrawUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = clover.CLRCutMosaicDrawUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = CLRCutMosaicDraw;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		542C4FAC1C5328A200356873 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = CLRCutMosaicDrawUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = clover.CLRCutMosaicDrawUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = CLRCutMosaicDraw;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		542C4F721C5328A200356873 /* Build configuration list for PBXProject "CLRCutMosaicDraw" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				542C4FA21C5328A200356873 /* Debug */,
+				542C4FA31C5328A200356873 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		542C4FA41C5328A200356873 /* Build configuration list for PBXNativeTarget "CLRCutMosaicDraw" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				542C4FA51C5328A200356873 /* Debug */,
+				542C4FA61C5328A200356873 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		542C4FA71C5328A200356873 /* Build configuration list for PBXNativeTarget "CLRCutMosaicDrawTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				542C4FA81C5328A200356873 /* Debug */,
+				542C4FA91C5328A200356873 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		542C4FAA1C5328A200356873 /* Build configuration list for PBXNativeTarget "CLRCutMosaicDrawUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				542C4FAB1C5328A200356873 /* Debug */,
+				542C4FAC1C5328A200356873 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 542C4F6F1C5328A200356873 /* Project object */;
+}
