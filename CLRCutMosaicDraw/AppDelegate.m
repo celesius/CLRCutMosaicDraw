@@ -7,7 +7,8 @@
 //
 
 #import "AppDelegate.h"
-
+#import "ViewController.h"
+#import "CLRiOSPlug.h"
 @interface AppDelegate ()
 
 @end
@@ -17,6 +18,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    self.window = [[UIWindow alloc]initWithFrame:[CLRiOSPlug screenRect]];
+    ViewController *vc = [[ViewController alloc]init];
+    UINavigationController *nc = [[UINavigationController alloc]initWithRootViewController:vc];
+    nc.navigationBarHidden = YES;
+    [self.window setRootViewController:nc];
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

@@ -15,6 +15,16 @@
 		542C4F8A1C5328A200356873 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 542C4F881C5328A200356873 /* LaunchScreen.storyboard */; };
 		542C4F951C5328A200356873 /* CLRCutMosaicDrawTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 542C4F941C5328A200356873 /* CLRCutMosaicDrawTests.m */; };
 		542C4FA01C5328A200356873 /* CLRCutMosaicDrawUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 542C4F9F1C5328A200356873 /* CLRCutMosaicDrawUITests.m */; };
+		542C4FB01C532CEB00356873 /* CLRiOSPlug.m in Sources */ = {isa = PBXBuildFile; fileRef = 542C4FAF1C532CEB00356873 /* CLRiOSPlug.m */; };
+		542C4FBD1C53512100356873 /* backgroundCloud.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 542C4FBC1C53512000356873 /* backgroundCloud.jpg */; };
+		542C4FC11C535CB000356873 /* backgroundDrakCloud.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 542C4FC01C535CB000356873 /* backgroundDrakCloud.jpg */; };
+		542C4FC41C535EB300356873 /* CLREditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 542C4FC31C535EB300356873 /* CLREditViewController.m */; };
+		542C4FCA1C53765800356873 /* DrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 542C4FC71C53765800356873 /* DrawView.m */; };
+		542C4FCB1C53765800356873 /* DrawViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 542C4FC91C53765800356873 /* DrawViewModel.m */; };
+		542C4FCF1C53911000356873 /* CLRSmoothedBIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 542C4FCE1C53911000356873 /* CLRSmoothedBIView.m */; };
+		5463341F1C59E9720065F7D0 /* CLRCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5463341E1C59E9720065F7D0 /* CLRCameraViewController.m */; };
+		546334231C59EE350065F7D0 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 542C4FBA1C532D3500356873 /* GPUImage.framework */; };
+		546334241C59EE350065F7D0 /* GPUImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 542C4FBA1C532D3500356873 /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,7 +42,42 @@
 			remoteGlobalIDString = 542C4F761C5328A200356873;
 			remoteInfo = CLRCutMosaicDraw;
 		};
+		542C4FB71C532D3500356873 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 542C4FB11C532D3500356873 /* GPUImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCF1A33414DDB1EC00852800;
+			remoteInfo = GPUImage;
+		};
+		542C4FB91C532D3500356873 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 542C4FB11C532D3500356873 /* GPUImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCE209E51943F20C002FEED8;
+			remoteInfo = GPUImageFramework;
+		};
+		546334251C59EE350065F7D0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 542C4FB11C532D3500356873 /* GPUImage.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = BCE209E41943F20C002FEED8;
+			remoteInfo = GPUImageFramework;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		546334271C59EE350065F7D0 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				546334241C59EE350065F7D0 /* GPUImage.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		542C4F771C5328A200356873 /* CLRCutMosaicDraw.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CLRCutMosaicDraw.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,6 +96,21 @@
 		542C4F9B1C5328A200356873 /* CLRCutMosaicDrawUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CLRCutMosaicDrawUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		542C4F9F1C5328A200356873 /* CLRCutMosaicDrawUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CLRCutMosaicDrawUITests.m; sourceTree = "<group>"; };
 		542C4FA11C5328A200356873 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		542C4FAE1C532CEB00356873 /* CLRiOSPlug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLRiOSPlug.h; path = CLRPlug/CLRiOSPlug.h; sourceTree = "<group>"; };
+		542C4FAF1C532CEB00356873 /* CLRiOSPlug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLRiOSPlug.m; path = CLRPlug/CLRiOSPlug.m; sourceTree = "<group>"; };
+		542C4FB11C532D3500356873 /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = ../../GPUImage/framework/GPUImage.xcodeproj; sourceTree = "<group>"; };
+		542C4FBC1C53512000356873 /* backgroundCloud.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = backgroundCloud.jpg; sourceTree = "<group>"; };
+		542C4FC01C535CB000356873 /* backgroundDrakCloud.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = backgroundDrakCloud.jpg; sourceTree = "<group>"; };
+		542C4FC21C535EB300356873 /* CLREditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLREditViewController.h; path = SelfVC/CLREditViewController.h; sourceTree = "<group>"; };
+		542C4FC31C535EB300356873 /* CLREditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLREditViewController.m; path = SelfVC/CLREditViewController.m; sourceTree = "<group>"; };
+		542C4FC61C53765800356873 /* DrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawView.h; sourceTree = "<group>"; };
+		542C4FC71C53765800356873 /* DrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawView.m; sourceTree = "<group>"; };
+		542C4FC81C53765800356873 /* DrawViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawViewModel.h; sourceTree = "<group>"; };
+		542C4FC91C53765800356873 /* DrawViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawViewModel.m; sourceTree = "<group>"; };
+		542C4FCD1C53911000356873 /* CLRSmoothedBIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLRSmoothedBIView.h; sourceTree = "<group>"; };
+		542C4FCE1C53911000356873 /* CLRSmoothedBIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLRSmoothedBIView.m; sourceTree = "<group>"; };
+		5463341D1C59E9720065F7D0 /* CLRCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLRCameraViewController.h; path = SelfVC/CLRCameraViewController.h; sourceTree = "<group>"; };
+		5463341E1C59E9720065F7D0 /* CLRCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLRCameraViewController.m; path = SelfVC/CLRCameraViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				546334231C59EE350065F7D0 /* GPUImage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +142,7 @@
 		542C4F6E1C5328A200356873 = {
 			isa = PBXGroup;
 			children = (
+				542C4FB11C532D3500356873 /* GPUImage.xcodeproj */,
 				542C4F791C5328A200356873 /* CLRCutMosaicDraw */,
 				542C4F931C5328A200356873 /* CLRCutMosaicDrawTests */,
 				542C4F9E1C5328A200356873 /* CLRCutMosaicDrawUITests */,
@@ -101,6 +163,11 @@
 		542C4F791C5328A200356873 /* CLRCutMosaicDraw */ = {
 			isa = PBXGroup;
 			children = (
+				542C4FC51C53764C00356873 /* DrawView */,
+				542C4FBC1C53512000356873 /* backgroundCloud.jpg */,
+				542C4FC01C535CB000356873 /* backgroundDrakCloud.jpg */,
+				542C4FBF1C535C5A00356873 /* selfVC */,
+				542C4FAD1C532CBE00356873 /* CLRPlug */,
 				542C4F7D1C5328A200356873 /* AppDelegate.h */,
 				542C4F7E1C5328A200356873 /* AppDelegate.m */,
 				542C4F801C5328A200356873 /* ViewController.h */,
@@ -140,6 +207,48 @@
 			path = CLRCutMosaicDrawUITests;
 			sourceTree = "<group>";
 		};
+		542C4FAD1C532CBE00356873 /* CLRPlug */ = {
+			isa = PBXGroup;
+			children = (
+				542C4FAE1C532CEB00356873 /* CLRiOSPlug.h */,
+				542C4FAF1C532CEB00356873 /* CLRiOSPlug.m */,
+			);
+			name = CLRPlug;
+			sourceTree = "<group>";
+		};
+		542C4FB21C532D3500356873 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				542C4FB81C532D3500356873 /* libGPUImage.a */,
+				542C4FBA1C532D3500356873 /* GPUImage.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		542C4FBF1C535C5A00356873 /* selfVC */ = {
+			isa = PBXGroup;
+			children = (
+				542C4FC21C535EB300356873 /* CLREditViewController.h */,
+				542C4FC31C535EB300356873 /* CLREditViewController.m */,
+				5463341D1C59E9720065F7D0 /* CLRCameraViewController.h */,
+				5463341E1C59E9720065F7D0 /* CLRCameraViewController.m */,
+			);
+			name = selfVC;
+			sourceTree = "<group>";
+		};
+		542C4FC51C53764C00356873 /* DrawView */ = {
+			isa = PBXGroup;
+			children = (
+				542C4FC61C53765800356873 /* DrawView.h */,
+				542C4FC71C53765800356873 /* DrawView.m */,
+				542C4FC81C53765800356873 /* DrawViewModel.h */,
+				542C4FC91C53765800356873 /* DrawViewModel.m */,
+				542C4FCD1C53911000356873 /* CLRSmoothedBIView.h */,
+				542C4FCE1C53911000356873 /* CLRSmoothedBIView.m */,
+			);
+			name = DrawView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -150,10 +259,12 @@
 				542C4F731C5328A200356873 /* Sources */,
 				542C4F741C5328A200356873 /* Frameworks */,
 				542C4F751C5328A200356873 /* Resources */,
+				546334271C59EE350065F7D0 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				546334261C59EE350065F7D0 /* PBXTargetDependency */,
 			);
 			name = CLRCutMosaicDraw;
 			productName = CLRCutMosaicDraw;
@@ -229,6 +340,12 @@
 			mainGroup = 542C4F6E1C5328A200356873;
 			productRefGroup = 542C4F781C5328A200356873 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 542C4FB21C532D3500356873 /* Products */;
+					ProjectRef = 542C4FB11C532D3500356873 /* GPUImage.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				542C4F761C5328A200356873 /* CLRCutMosaicDraw */,
@@ -238,12 +355,31 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		542C4FB81C532D3500356873 /* libGPUImage.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libGPUImage.a;
+			remoteRef = 542C4FB71C532D3500356873 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		542C4FBA1C532D3500356873 /* GPUImage.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = GPUImage.framework;
+			remoteRef = 542C4FB91C532D3500356873 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		542C4F751C5328A200356873 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				542C4F8A1C5328A200356873 /* LaunchScreen.storyboard in Resources */,
+				542C4FC11C535CB000356873 /* backgroundDrakCloud.jpg in Resources */,
+				542C4FBD1C53512100356873 /* backgroundCloud.jpg in Resources */,
 				542C4F871C5328A200356873 /* Assets.xcassets in Resources */,
 				542C4F851C5328A200356873 /* Main.storyboard in Resources */,
 			);
@@ -270,9 +406,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				542C4FCF1C53911000356873 /* CLRSmoothedBIView.m in Sources */,
 				542C4F821C5328A200356873 /* ViewController.m in Sources */,
+				542C4FC41C535EB300356873 /* CLREditViewController.m in Sources */,
+				542C4FCA1C53765800356873 /* DrawView.m in Sources */,
+				542C4FCB1C53765800356873 /* DrawViewModel.m in Sources */,
+				5463341F1C59E9720065F7D0 /* CLRCameraViewController.m in Sources */,
 				542C4F7F1C5328A200356873 /* AppDelegate.m in Sources */,
 				542C4F7C1C5328A200356873 /* main.m in Sources */,
+				542C4FB01C532CEB00356873 /* CLRiOSPlug.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,6 +446,11 @@
 			isa = PBXTargetDependency;
 			target = 542C4F761C5328A200356873 /* CLRCutMosaicDraw */;
 			targetProxy = 542C4F9C1C5328A200356873 /* PBXContainerItemProxy */;
+		};
+		546334261C59EE350065F7D0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GPUImageFramework;
+			targetProxy = 546334251C59EE350065F7D0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -411,7 +558,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				HEADER_SEARCH_PATHS = (
+					/Users/vk/workspace/GPUImage/framework/Source,
+					/Users/vk/workspace/GPUImage/framework/Source/iOS,
+				);
 				INFOPLIST_FILE = CLRCutMosaicDraw/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = clover.CLRCutMosaicDraw;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -422,7 +574,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				HEADER_SEARCH_PATHS = (
+					/Users/vk/workspace/GPUImage/framework/Source,
+					/Users/vk/workspace/GPUImage/framework/Source/iOS,
+				);
 				INFOPLIST_FILE = CLRCutMosaicDraw/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = clover.CLRCutMosaicDraw;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -496,6 +653,7 @@
 				542C4FA61C5328A200356873 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		542C4FA71C5328A200356873 /* Build configuration list for PBXNativeTarget "CLRCutMosaicDrawTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +662,7 @@
 				542C4FA91C5328A200356873 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		542C4FAA1C5328A200356873 /* Build configuration list for PBXNativeTarget "CLRCutMosaicDrawUITests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +671,7 @@
 				542C4FAC1C5328A200356873 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
