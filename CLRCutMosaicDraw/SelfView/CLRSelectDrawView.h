@@ -7,9 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DrawElementsModel.h"
-
-
+#import "CLRDrawElementModelStore.h"
 
 @interface CLRSelectDrawView : UIView
 

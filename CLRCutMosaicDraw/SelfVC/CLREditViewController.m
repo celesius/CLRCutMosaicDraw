@@ -11,8 +11,14 @@
 #import "DrawView.h"
 #import "CLRSmoothedBIView.h"
 #import "CLRDrawView.h"
+#import "CLRSelectDrawView.h"
 
 @interface CLREditViewController ()
+{
+    CLRSelectDrawView *_mSelectDrawView;
+
+}
+
 
 //@property (nonatomic) DrawView *drawView;
 //@property (nonatomic) CLRSmoothedBIView *drawView;
@@ -71,6 +77,12 @@
     
     //self.mToolbar.items = barButtonItemArray;
     [self.mToolbar setItems:barButtonItemArray animated:YES];
+    
+    _mSelectDrawView = [[CLRSelectDrawView alloc]initWithFrame:self.view.bounds];
+    [self.view addSubview:_mSelectDrawView];
+    _mSelectDrawView.hidden = YES;
+    _mSelectDrawView.alpha = 0.0;
+    
 }
 
 - (BOOL)prefersStatusBarHidden
@@ -105,7 +117,14 @@
 
 - (void)b2ButtonFoo:(id)sender
 {
-
+    _mSelectDrawView.hidden = NO;
+    [UIView animateWithDuration:0.3
+                     animations:^{
+                         _mSelectDrawView.alpha = 1.0;
+                     }
+                     completion:^(BOOL finished){
+                     
+                     }];
 }
 
 - (void)cutImageButtonFoo:(id)sender

@@ -11,6 +11,9 @@
 
 @interface CLRDrawElementModelStore : NSObject
 
+@property (nonatomic) CLRElementType currentElmentType;
+
 + (instancetype) sharedStore;
++ (NSString *) getElementName:(CLRElementType) type;
 
 @end
