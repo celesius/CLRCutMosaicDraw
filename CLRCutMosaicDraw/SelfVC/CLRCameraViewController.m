@@ -52,10 +52,8 @@
 
 - (void)captureButtonFoo:(id)sender
 {
-    
     [self.gpuCamera capturePhotoAsImageProcessedUpToFilter:self.filter withCompletionHandler:^(UIImage *processedImage, NSError *error) {
-          NSData *dataForJPEGFile = UIImageJPEGRepresentation(processedImage, 0.8);
-        
+        NSData *dataForJPEGFile = UIImageJPEGRepresentation(processedImage, 0.8);
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *documentsDirectory = [paths objectAtIndex:0];
         
@@ -66,12 +64,11 @@
         }
     }];
     
-   /*
-    [self.gpuCamera capturePhotoProcessedUpToFilter:filter withCompletionHandler:^(UIImage *processedImage, NSError *error){
-      
-    }];
-*/
-
+    /*
+     [self.gpuCamera capturePhotoProcessedUpToFilter:filter withCompletionHandler:^(UIImage *processedImage, NSError *error){
+     
+     }];
+     */
 }
 
 - (void)didReceiveMemoryWarning {

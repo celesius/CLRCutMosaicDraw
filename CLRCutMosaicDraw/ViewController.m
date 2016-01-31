@@ -15,10 +15,11 @@ static float offsetValue = 25.0;
 @interface ViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 {
     UIImagePickerController *ipc;
-    
     //float offsetValue;
-    
 }
+
+@property (nonatomic) UIImage *galleryImage;
+
 @end
 
 @implementation ViewController
@@ -148,8 +149,10 @@ static float offsetValue = 25.0;
         //[picker dismissViewControllerAnimated:YES completion:^{[weakself vcPush];}];
         [picker dismissViewControllerAnimated:YES completion:nil];
     }
-   
-    
+    self.galleryImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+    CLREditViewController *clrEditVC = [[CLREditViewController alloc]init];
+    clrEditVC.srcImage = self.galleryImage;
+    [self presentViewController:clrEditVC animated:YES completion:nil];
     //_getImage = [info objectForKey:UIImagePickerControllerOriginalImage];
     //[self vcPush];
     //_clrGPUImageVC = [[CLRGPUImageVC alloc]init];

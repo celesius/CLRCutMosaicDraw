@@ -22,6 +22,8 @@
 @property (nonatomic, weak) id<DrawViewDelegate> delegate;
 @property (nonatomic) BOOL deleteLine;
 
+@property (nonatomic) BOOL isAddRect;
+
 //-(void) setPhotoImage:(UIImage *)setImage;
 
 -(void) redo;

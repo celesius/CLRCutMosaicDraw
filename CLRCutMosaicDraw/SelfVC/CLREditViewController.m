@@ -10,11 +10,14 @@
 #import "CLRiOSPlug.h"
 #import "DrawView.h"
 #import "CLRSmoothedBIView.h"
+#import "CLRDrawView.h"
 
 @interface CLREditViewController ()
 
 //@property (nonatomic) DrawView *drawView;
-@property (nonatomic) CLRSmoothedBIView *drawView;
+//@property (nonatomic) CLRSmoothedBIView *drawView;
+@property (nonatomic) CLRDrawView *drawView;
+@property (nonatomic) UIToolbar *mToolbar;
 
 @end
 
@@ -38,20 +41,52 @@
     CGRect  viewRect = CGRectMake(0, CGRectGetMaxY(backButton.frame), CGRectGetWidth([CLRiOSPlug screenRect]),  CGRectGetHeight([CLRiOSPlug screenRect]) - CGRectGetHeight(backButton.frame));
     
    // self.drawView = [[DrawView alloc]initWithFrame:viewRect];
-    self.drawView = [[CLRSmoothedBIView alloc]initWithFrame:viewRect];
+    //self.drawView = [[CLRSmoothedBIView alloc]initWithFrame:viewRect];
+    self.drawView = [[CLRDrawView alloc]initWithFrame:viewRect];
+    
     self.drawView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.drawView];
+   
+    float toolBarHight = 50;
+    self.mToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, CGRectGetHeight(self.view.bounds) - toolBarHight, CGRectGetWidth(self.view.bounds), toolBarHight)];
+    [self.view addSubview:self.mToolbar];
+   
+    NSMutableArray *barButtonItemArray = [[NSMutableArray alloc]initWithCapacity:0];
+    UIBarButtonItem *b1 = [[UIBarButtonItem alloc]initWithTitle:@"线宽" style:UIBarButtonItemStylePlain target:self action:@selector(b1ButtonFoo:)];
+    UIBarButtonItem *b2 = [[UIBarButtonItem alloc]initWithTitle:@"绘制类型" style:UIBarButtonItemStylePlain target:self action:@selector(b2ButtonFoo:)];
+    UIBarButtonItem *cutImage = [[UIBarButtonItem alloc]initWithTitle:@"剪切" style:UIBarButtonItemStylePlain target:self action:@selector(cutImageButtonFoo:)];
+    UIBarButtonItem *redoButton = [[UIBarButtonItem alloc]initWithTitle:@"redo" style:UIBarButtonItemStylePlain target:self action:@selector(redoButtonFoo:)];
+    UIBarButtonItem *undoButton = [[UIBarButtonItem alloc]initWithTitle:@"undo" style:UIBarButtonItemStylePlain target:self action:@selector(undoButtonFoo:)];
     
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    UIBarButtonItem *space = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+    [barButtonItemArray addObject:b1];
+    [barButtonItemArray addObject:space];
+    [barButtonItemArray addObject:b2];
+    [barButtonItemArray addObject:space];
+    [barButtonItemArray addObject:cutImage];
+    [barButtonItemArray addObject:space];
+    [barButtonItemArray addObject:redoButton];
+    [barButtonItemArray addObject:space];
+    [barButtonItemArray addObject:undoButton];
+    
+    //self.mToolbar.items = barButtonItemArray;
+    [self.mToolbar setItems:barButtonItemArray animated:YES];
 }
 
 - (BOOL)prefersStatusBarHidden
 {
     return YES;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    if(self.srcImage)
+    {
+        //self.drawView.
+        UIImageView *tt = [[UIImageView alloc]initWithImage:self.srcImage];
+        tt.frame = self.drawView.bounds;
+        [self.drawView addSubview:tt];
+    }
 }
 
 - (void)backButtonFoo:(id)sender
@@ -63,7 +98,37 @@
                              }];
 }
 
-#pragma --CLR Debug foo
+- (void)b1ButtonFoo:(id)sender
+{
+
+}
+
+- (void)b2ButtonFoo:(id)sender
+{
+
+}
+
+- (void)cutImageButtonFoo:(id)sender
+{
+
+}
+
+- (void)redoButtonFoo:(id)sender
+{
+
+}
+
+- (void)undoButtonFoo:(id)sender
+{
+
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark --CLR Debug foo
 - (void)dealloc
 {
     NSLog(@"CLREditViewController dealloc");

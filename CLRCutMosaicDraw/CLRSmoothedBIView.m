@@ -92,6 +92,9 @@
     [self touchesEnded:touches withEvent:event];
 }
 
+
+
+
 - (void)drawBitmap
 {
     UIGraphicsBeginImageContextWithOptions(self.bounds.size, YES, 0.0);

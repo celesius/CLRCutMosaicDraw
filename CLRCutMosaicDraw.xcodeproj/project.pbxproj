@@ -25,6 +25,11 @@
 		5463341F1C59E9720065F7D0 /* CLRCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5463341E1C59E9720065F7D0 /* CLRCameraViewController.m */; };
 		546334231C59EE350065F7D0 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 542C4FBA1C532D3500356873 /* GPUImage.framework */; };
 		546334241C59EE350065F7D0 /* GPUImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 542C4FBA1C532D3500356873 /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5463343F1C5C3DA60065F7D0 /* DrawElementsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5463343E1C5C3DA60065F7D0 /* DrawElementsModel.m */; };
+		546334451C5DBC530065F7D0 /* CLRDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 546334441C5DBC530065F7D0 /* CLRDrawView.m */; };
+		546334481C5DC1550065F7D0 /* CLRDrawElementModelStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 546334471C5DC1550065F7D0 /* CLRDrawElementModelStore.m */; };
+		5463344B1C5E083E0065F7D0 /* CLRSelectDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5463344A1C5E083E0065F7D0 /* CLRSelectDrawView.m */; };
+		5463344F1C5E136C0065F7D0 /* SMVerticalSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 5463344E1C5E136C0065F7D0 /* SMVerticalSegmentedControl.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +116,16 @@
 		542C4FCE1C53911000356873 /* CLRSmoothedBIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLRSmoothedBIView.m; sourceTree = "<group>"; };
 		5463341D1C59E9720065F7D0 /* CLRCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLRCameraViewController.h; path = SelfVC/CLRCameraViewController.h; sourceTree = "<group>"; };
 		5463341E1C59E9720065F7D0 /* CLRCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLRCameraViewController.m; path = SelfVC/CLRCameraViewController.m; sourceTree = "<group>"; };
+		5463343D1C5C3DA60065F7D0 /* DrawElementsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawElementsModel.h; sourceTree = "<group>"; };
+		5463343E1C5C3DA60065F7D0 /* DrawElementsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawElementsModel.m; sourceTree = "<group>"; };
+		546334431C5DBC530065F7D0 /* CLRDrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLRDrawView.h; path = SelfView/CLRDrawView.h; sourceTree = "<group>"; };
+		546334441C5DBC530065F7D0 /* CLRDrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLRDrawView.m; path = SelfView/CLRDrawView.m; sourceTree = "<group>"; };
+		546334461C5DC1550065F7D0 /* CLRDrawElementModelStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLRDrawElementModelStore.h; sourceTree = "<group>"; };
+		546334471C5DC1550065F7D0 /* CLRDrawElementModelStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLRDrawElementModelStore.m; sourceTree = "<group>"; };
+		546334491C5E083E0065F7D0 /* CLRSelectDrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLRSelectDrawView.h; path = SelfView/CLRSelectDrawView.h; sourceTree = "<group>"; };
+		5463344A1C5E083E0065F7D0 /* CLRSelectDrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLRSelectDrawView.m; path = SelfView/CLRSelectDrawView.m; sourceTree = "<group>"; };
+		5463344D1C5E136C0065F7D0 /* SMVerticalSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMVerticalSegmentedControl.h; sourceTree = "<group>"; };
+		5463344E1C5E136C0065F7D0 /* SMVerticalSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMVerticalSegmentedControl.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +178,7 @@
 		542C4F791C5328A200356873 /* CLRCutMosaicDraw */ = {
 			isa = PBXGroup;
 			children = (
+				5463344C1C5E13500065F7D0 /* SMVSegmentedControl */,
 				542C4FC51C53764C00356873 /* DrawView */,
 				542C4FBC1C53512000356873 /* backgroundCloud.jpg */,
 				542C4FC01C535CB000356873 /* backgroundDrakCloud.jpg */,
@@ -245,8 +261,25 @@
 				542C4FC91C53765800356873 /* DrawViewModel.m */,
 				542C4FCD1C53911000356873 /* CLRSmoothedBIView.h */,
 				542C4FCE1C53911000356873 /* CLRSmoothedBIView.m */,
+				5463343D1C5C3DA60065F7D0 /* DrawElementsModel.h */,
+				5463343E1C5C3DA60065F7D0 /* DrawElementsModel.m */,
+				546334461C5DC1550065F7D0 /* CLRDrawElementModelStore.h */,
+				546334471C5DC1550065F7D0 /* CLRDrawElementModelStore.m */,
+				546334431C5DBC530065F7D0 /* CLRDrawView.h */,
+				546334441C5DBC530065F7D0 /* CLRDrawView.m */,
+				546334491C5E083E0065F7D0 /* CLRSelectDrawView.h */,
+				5463344A1C5E083E0065F7D0 /* CLRSelectDrawView.m */,
 			);
 			name = DrawView;
+			sourceTree = "<group>";
+		};
+		5463344C1C5E13500065F7D0 /* SMVSegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				5463344D1C5E136C0065F7D0 /* SMVerticalSegmentedControl.h */,
+				5463344E1C5E136C0065F7D0 /* SMVerticalSegmentedControl.m */,
+			);
+			name = SMVSegmentedControl;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -406,12 +439,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5463343F1C5C3DA60065F7D0 /* DrawElementsModel.m in Sources */,
+				546334451C5DBC530065F7D0 /* CLRDrawView.m in Sources */,
 				542C4FCF1C53911000356873 /* CLRSmoothedBIView.m in Sources */,
 				542C4F821C5328A200356873 /* ViewController.m in Sources */,
 				542C4FC41C535EB300356873 /* CLREditViewController.m in Sources */,
+				5463344B1C5E083E0065F7D0 /* CLRSelectDrawView.m in Sources */,
 				542C4FCA1C53765800356873 /* DrawView.m in Sources */,
 				542C4FCB1C53765800356873 /* DrawViewModel.m in Sources */,
+				5463344F1C5E136C0065F7D0 /* SMVerticalSegmentedControl.m in Sources */,
 				5463341F1C59E9720065F7D0 /* CLRCameraViewController.m in Sources */,
+				546334481C5DC1550065F7D0 /* CLRDrawElementModelStore.m in Sources */,
 				542C4F7F1C5328A200356873 /* AppDelegate.m in Sources */,
 				542C4F7C1C5328A200356873 /* main.m in Sources */,
 				542C4FB01C532CEB00356873 /* CLRiOSPlug.m in Sources */,
