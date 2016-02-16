@@ -9,6 +9,8 @@
 #import "CLRDrawElementModelStore.h"
 
 @interface CLRDrawElementModelStore ()
+{
+}
 
 @property (nonatomic) NSMutableArray *modelStoreArray;
 
@@ -37,7 +39,62 @@
     self = [super init];
     self.modelStoreArray = [[NSMutableArray alloc]init];
     self.currentElmentType = 0;
+    self.currentSubParamenter = [[SubParameter alloc]init];
     return self;
+}
+
+- (void)storeCurrentOperateAt:(NSInteger)setIndex
+{
+    NSInteger arrayCnt = [self getElementModelStoreQuantity];
+    if(arrayCnt == setIndex)
+    {
+        [self storeCurrentOperate];
+    } else {
+        NSInteger indexBuffer = setIndex;
+        
+        if(indexBuffer == 0)
+        {
+            [self.modelStoreArray removeAllObjects];
+        }else{
+            for ( ; arrayCnt >= indexBuffer + 1; ) {
+                [self.modelStoreArray removeLastObject];
+                arrayCnt = [self getElementModelStoreQuantity];
+            }
+        }
+        [self storeCurrentOperate];
+    }
+}
+
+- (void)storeCurrentOperate
+{
+    SubParameter *newParameter = [self.currentSubParamenter mutableCopy];//[self copyParameter];//[[SubParameter alloc]init];
+    DrawElementsModel *newModel = [DrawElementsModel creatDrawElementWith:self.currentElmentType andSubParameter:newParameter];
+    [self.modelStoreArray addObject:newModel];
+}
+
+- (SubParameter *)copyParameter
+{
+    SubParameter *newParameter = [[SubParameter alloc]init];
+    newParameter.mPath = [UIBezierPath bezierPathWithCGPath:self.currentSubParamenter.mPath.CGPath]; //[self.currentSubParamenter.mPath mutableCopy];
+    newParameter.mElementColor =  [UIColor colorWithCGColor:self.currentSubParamenter.mElementColor.CGColor];
+    return newParameter;
+}
+
+- (NSInteger) getElementModelStoreQuantity
+{
+    return [self.modelStoreArray count];
+}
+
+- (DrawElementsModel *) getModelByNum:(NSInteger)num
+{
+    NSLog(@"%d",num);
+    return [self.modelStoreArray objectAtIndex:num];
+}
+
+- (void)initStoreArray
+{
+    self.modelStoreArray = nil;
+    self.modelStoreArray = [[NSMutableArray alloc]init];
 }
 
 + (NSString *) getElementName:(CLRElementType) type
@@ -68,7 +125,7 @@
         case TypeShiXinRectangle:
             stringWillrReturn = @"实心矩形";
             break;
-        case TpyeShiXinCircle:
+        case TypeShiXinCircle:
             stringWillrReturn = @"实心圆形";
             break;
         case TypeText:

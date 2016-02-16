@@ -15,7 +15,7 @@ typedef enum clrElementType {
     TypeText,
     TypeMosaic,
     TypeBlur,
-    TpyeShiXinCircle,
+    TypeShiXinCircle,
     TypeShiXinRectangle,
     TypeCircle,
     TyperRectangle,
@@ -23,38 +23,43 @@ typedef enum clrElementType {
     AllTypeNum
 } CLRElementType;
 
-@interface SubParameter: NSObject
+@interface SubParameter: NSObject <NSMutableCopying>
 /**
- *  马赛克块大小
+ *  马赛克块大小 初始化为0.05
  */
-@property (nonatomic) CGSize mMosaicInputTileSize;
+@property (nonatomic) CGFloat mMosaicInputTileSize;
 /**
- *  模糊程度
+ *  模糊程度 初始化0.1
  */
 @property (nonatomic) CGFloat mBlurIntensity;
 /**
- *  文字大小
+ *  文字大小 初始化16
  */
 @property (nonatomic) CGFloat mTextSize;
 /**
- *  带Rect的元素的rect
+ *  圆形，模糊，马赛克，矩形的rect 初始化为zero
  */
 @property (nonatomic) CGRect mElementRect;
 /**
- *  线宽度
+ *  线宽度 初始化为10
  */
 @property (nonatomic) CGFloat mLineWidth;
 /**
- *  Line和userLine的path
+ *  带Rect的元素的rect
  */
-@property (nonatomic) UIBezierPath *mPath;
+//@property (nonatomic) CGRect mRect;
 /**
- *  各元素的颜色
+ *  Line和userLine的path 初始化为init
+ */
+@property (nonatomic, copy) UIBezierPath *mPath;
+/**
+ *  各元素的颜色 初始化为black
  */
 @property (nonatomic) UIColor *mElementColor;
 @end
 
 @interface DrawElementsModel : NSObject
-@property (nonatomic) CLRElementType mElementType;
-@property (nonatomic,copy) SubParameter *mSubParameter;
++ (id)creatDrawElementWith:(CLRElementType)tpye andSubParameter:(SubParameter*)subParameter;
+- (CLRElementType)getType;
+- (SubParameter *)getParameter;
 @end

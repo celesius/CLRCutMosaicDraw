@@ -10,6 +10,8 @@
 #import "CLRiOSPlug.h"
 #import "CLREditViewController.h"
 #import "CLRCameraViewController.h"
+#import "CLRPloygonImageVC.h"
+#import "UIImage+Rotate.h"
 static float offsetValue = 25.0;
 
 @interface ViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
@@ -65,6 +67,17 @@ static float offsetValue = 25.0;
     [cameraButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [cameraButton addTarget:self action:@selector(cameraButtonFoo:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:cameraButton];
+    
+    
+    UIButton *testButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    testButton.frame = CGRectMake(CGRectGetMinX(drawButton.frame), CGRectGetMaxY(drawButton.frame) + 20.0, buttonWidth, buttonHeight);
+    testButton.backgroundColor = [UIColor grayColor];
+    [testButton setTitle:@"测试" forState:UIControlStateNormal];
+    [testButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [testButton addTarget:self action:@selector(testButtonFoo:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:testButton];
+    
+    
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -128,7 +141,7 @@ static float offsetValue = 25.0;
     }
 }
 
-- (void)cameraButtonFoo:(id)sener
+- (void)cameraButtonFoo:(id)sender
 {
     [self openCamera];
 }
@@ -137,7 +150,12 @@ static float offsetValue = 25.0;
 {
     CLRCameraViewController *cameraVC = [[CLRCameraViewController alloc]init];
     [self presentViewController:cameraVC animated:YES completion:nil];
+}
 
+- (void)testButtonFoo:(id)sender
+{
+    CLRPloygonImageVC *pIVC = [[CLRPloygonImageVC alloc]init];
+    [self presentViewController:pIVC animated:YES completion:nil];
 }
 
 #pragma make - ImagePickerController Delegate
@@ -151,13 +169,21 @@ static float offsetValue = 25.0;
     }
     self.galleryImage = [info objectForKey:UIImagePickerControllerOriginalImage];
     CLREditViewController *clrEditVC = [[CLREditViewController alloc]init];
-    clrEditVC.srcImage = self.galleryImage;
-    [self presentViewController:clrEditVC animated:YES completion:nil];
+    [self presentViewController:clrEditVC animated:YES completion:^{
+        //weakself.galleryImage = [weakself.galleryImage rotateInRadians:10];
+        
+        clrEditVC.srcImage = weakself.galleryImage;
+    }];
     //_getImage = [info objectForKey:UIImagePickerControllerOriginalImage];
     //[self vcPush];
     //_clrGPUImageVC = [[CLRGPUImageVC alloc]init];
     //_clrGPUImageVC.getImage = _getImage;
     //NSLog(@"getImage");
+}
+
+- (void)vcPush
+{
+
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker

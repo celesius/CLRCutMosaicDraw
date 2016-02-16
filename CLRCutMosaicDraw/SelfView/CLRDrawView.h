@@ -7,15 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DrawElementsModel.h"
+//#import "DrawElementsModel.h"
+#import "CLRDrawElementModelStore.h"
 
 @interface CLRDrawView : UIView
 
 
 @property (nonatomic) CLRElementType currentType;
+//@property (nonatomic, weak) UIImage *incrementalImage;
 
-@property (nonatomic, readonly) DrawElementsModel *currentDrawModel;
 
+@property (nonatomic, readonly) CLRDrawElementModelStore *currentDrawModel;
+
+- (void)updateBackgroundImage:(UIImage *)image;
 - (void)redo;
 - (void)undo;
 
