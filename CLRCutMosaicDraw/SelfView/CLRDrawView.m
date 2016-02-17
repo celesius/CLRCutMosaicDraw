@@ -240,16 +240,7 @@ typedef enum mProcessingType {
             [drawPath removeAllPoints];
             break;
     }
-    
-    //UIBezierPath *rectMa = [UIBezierPath bezierPathWithRect:CGRectMake(rectStart.x, rectStart.y, rectPass.x - rectStart.x, rectPass.y - rectStart.y) ];
-    
-    //UIBezierPath *linePath = [UIBezierPath bezierPath];
-    //[[UIColor redColor] setFill];
-    //[rectMa fill];
-    
-//    CGRect drawRect =
 }
-
 
 - (void)drawBitmap
 {

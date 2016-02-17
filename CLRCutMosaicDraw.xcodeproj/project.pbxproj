@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		541548EB1C74369700835B25 /* 箭头.png in Resources */ = {isa = PBXBuildFile; fileRef = 541548EA1C74369700835B25 /* 箭头.png */; };
+		54276DC41C73C11100A79171 /* CLRDynamicView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54276DC31C73C11100A79171 /* CLRDynamicView.m */; };
+		54276DC81C73C17700A79171 /* testImg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 54276DC71C73C17700A79171 /* testImg.jpg */; };
 		542C4F7C1C5328A200356873 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 542C4F7B1C5328A200356873 /* main.m */; };
 		542C4F7F1C5328A200356873 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 542C4F7E1C5328A200356873 /* AppDelegate.m */; };
 		542C4F821C5328A200356873 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 542C4F811C5328A200356873 /* ViewController.m */; };
@@ -125,6 +128,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		541548EA1C74369700835B25 /* 箭头.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "箭头.png"; sourceTree = "<group>"; };
+		54276DC21C73C11100A79171 /* CLRDynamicView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLRDynamicView.h; path = CLRTest/CLRDynamicView.h; sourceTree = "<group>"; };
+		54276DC31C73C11100A79171 /* CLRDynamicView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLRDynamicView.m; path = CLRTest/CLRDynamicView.m; sourceTree = "<group>"; };
+		54276DC71C73C17700A79171 /* testImg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = testImg.jpg; sourceTree = "<group>"; };
 		542C4F771C5328A200356873 /* CLRCutMosaicDraw.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CLRCutMosaicDraw.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		542C4F7B1C5328A200356873 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		542C4F7D1C5328A200356873 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -271,6 +278,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		541548E51C742F0000835B25 /* CustomerView */ = {
+			isa = PBXGroup;
+			children = (
+				54276DC21C73C11100A79171 /* CLRDynamicView.h */,
+				54276DC31C73C11100A79171 /* CLRDynamicView.m */,
+			);
+			name = CustomerView;
+			sourceTree = "<group>";
+		};
 		542C4F6E1C5328A200356873 = {
 			isa = PBXGroup;
 			children = (
@@ -304,6 +320,7 @@
 				5463345F1C604A5F0065F7D0 /* viewtest.jpg */,
 				546334641C605D440065F7D0 /* mask.png */,
 				546334661C6060110065F7D0 /* brows-test-sample-L-1.jpg */,
+				541548EA1C74369700835B25 /* 箭头.png */,
 				542C4FBF1C535C5A00356873 /* selfVC */,
 				542C4FAD1C532CBE00356873 /* CLRPlug */,
 				542C4F7D1C5328A200356873 /* AppDelegate.h */,
@@ -381,6 +398,7 @@
 		542C4FC51C53764C00356873 /* DrawView */ = {
 			isa = PBXGroup;
 			children = (
+				541548E51C742F0000835B25 /* CustomerView */,
 				54346F2B1C695A4400402FD7 /* MenuView */,
 				542C4FC61C53765800356873 /* DrawView.h */,
 				542C4FC71C53765800356873 /* DrawView.m */,
@@ -398,6 +416,7 @@
 				54346F261C6958FE00402FD7 /* CLRDrawViewAndBackgroundView.m */,
 				54346F281C695A3800402FD7 /* CLRDrawBackgroundView.h */,
 				54346F291C695A3800402FD7 /* CLRDrawBackgroundView.m */,
+				54276DC71C73C17700A79171 /* testImg.jpg */,
 			);
 			name = DrawView;
 			sourceTree = "<group>";
@@ -669,6 +688,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				541548EB1C74369700835B25 /* 箭头.png in Resources */,
 				546334671C6060110065F7D0 /* brows-test-sample-L-1.jpg in Resources */,
 				546334601C604A5F0065F7D0 /* viewtest.jpg in Resources */,
 				542C4F8A1C5328A200356873 /* LaunchScreen.storyboard in Resources */,
@@ -676,6 +696,7 @@
 				542C4FBD1C53512100356873 /* backgroundCloud.jpg in Resources */,
 				546334651C605D440065F7D0 /* mask.png in Resources */,
 				542C4F871C5328A200356873 /* Assets.xcassets in Resources */,
+				54276DC81C73C17700A79171 /* testImg.jpg in Resources */,
 				542C4F851C5328A200356873 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -717,6 +738,7 @@
 				54ABD5D31C61F3EA00FE3089 /* CloverWhiteArc.m in Sources */,
 				54ABD5D41C61F3EA00FE3089 /* ColorPreview.m in Sources */,
 				54346F271C6958FE00402FD7 /* CLRDrawViewAndBackgroundView.m in Sources */,
+				54276DC41C73C11100A79171 /* CLRDynamicView.m in Sources */,
 				54ABD5CC1C61F3EA00FE3089 /* BitmapRotationManipulator.m in Sources */,
 				54ABD5D81C61F3EA00FE3089 /* RSColorPickerLoopView.m in Sources */,
 				5463344B1C5E083E0065F7D0 /* CLRSelectDrawView.m in Sources */,
