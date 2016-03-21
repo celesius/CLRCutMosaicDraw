@@ -23,4 +23,6 @@
 - (void)redo;
 - (void)undo;
 
+- (UIImage *)getResultImage;
+
 @end

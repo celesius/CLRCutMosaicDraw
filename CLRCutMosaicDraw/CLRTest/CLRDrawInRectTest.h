@@ -1,14 +1,13 @@
 //
-//  CLRDynamicView.h
+//  CLRDrawInRectTest.h
 //  CLRCutMosaicDraw
 //
-//  Created by vk on 16/2/17.
+//  Created by vk on 16/2/19.
 //  Copyright © 2016年 clover. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface CLRDynamicView : UIView
+@interface CLRDrawInRectTest : UIView
 
-- (UIImage *)capture;
 @end

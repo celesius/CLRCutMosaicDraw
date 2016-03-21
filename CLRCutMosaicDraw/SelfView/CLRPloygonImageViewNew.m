@@ -37,14 +37,28 @@
         UIButton *saveImg = [UIButton buttonWithType:UIButtonTypeSystem];
         [saveImg setTitle:@"save" forState:UIControlStateNormal];
         [saveImg setBackgroundColor:[UIColor lightGrayColor]];
-        saveImg.frame = CGRectMake(0, 0, 50, 50);
+        saveImg.frame = CGRectMake(0, 50, 50, 50);
         [saveImg addTarget:self action:@selector(saveImage:) forControlEvents:UIControlEventTouchUpInside];
-        
+        [self addSubview:saveImg];
         
         //NSLog(@"%f",atan(2) / (M_PI/180.0));
         //[self drawImage];
     }
     return self;
+}
+
+- (void)saveImage:(id)sender
+{
+    UIImage *image = [self capture];
+    NSLog(@"%@",image);
+}
+
+- (UIImage *)capture {
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, [UIScreen mainScreen].scale);
+    [self drawViewHierarchyInRect:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height) afterScreenUpdates:YES];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
 }
 
 - (void)drawRect:(CGRect)rect
@@ -99,8 +113,6 @@
     //    NSLog(@"%@",_path);
     //    [self drawImage];
 }
-
-
 
 - (void)drawImage
 {

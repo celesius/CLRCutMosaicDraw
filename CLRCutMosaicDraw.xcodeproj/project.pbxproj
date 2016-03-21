@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		541548EB1C74369700835B25 /* 箭头.png in Resources */ = {isa = PBXBuildFile; fileRef = 541548EA1C74369700835B25 /* 箭头.png */; };
+		541548EF1C75947800835B25 /* CLRDrawImageColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 541548EE1C75947800835B25 /* CLRDrawImageColorView.m */; };
 		54276DC41C73C11100A79171 /* CLRDynamicView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54276DC31C73C11100A79171 /* CLRDynamicView.m */; };
 		54276DC81C73C17700A79171 /* testImg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 54276DC71C73C17700A79171 /* testImg.jpg */; };
 		542C4F7C1C5328A200356873 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 542C4F7B1C5328A200356873 /* main.m */; };
@@ -32,7 +33,7 @@
 		546334231C59EE350065F7D0 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 542C4FBA1C532D3500356873 /* GPUImage.framework */; };
 		546334241C59EE350065F7D0 /* GPUImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 542C4FBA1C532D3500356873 /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5463343F1C5C3DA60065F7D0 /* DrawElementsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5463343E1C5C3DA60065F7D0 /* DrawElementsModel.m */; };
-		546334451C5DBC530065F7D0 /* CLRDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 546334441C5DBC530065F7D0 /* CLRDrawView.m */; };
+		546334451C5DBC530065F7D0 /* CLRDrawView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 546334441C5DBC530065F7D0 /* CLRDrawView.mm */; };
 		546334481C5DC1550065F7D0 /* CLRDrawElementModelStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 546334471C5DC1550065F7D0 /* CLRDrawElementModelStore.m */; };
 		5463344B1C5E083E0065F7D0 /* CLRSelectDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5463344A1C5E083E0065F7D0 /* CLRSelectDrawView.m */; };
 		5463344F1C5E136C0065F7D0 /* SMVerticalSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 5463344E1C5E136C0065F7D0 /* SMVerticalSegmentedControl.m */; };
@@ -42,6 +43,8 @@
 		546334631C604B360065F7D0 /* CLRPloygonImageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 546334621C604B360065F7D0 /* CLRPloygonImageVC.m */; };
 		546334651C605D440065F7D0 /* mask.png in Resources */ = {isa = PBXBuildFile; fileRef = 546334641C605D440065F7D0 /* mask.png */; };
 		546334671C6060110065F7D0 /* brows-test-sample-L-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 546334661C6060110065F7D0 /* brows-test-sample-L-1.jpg */; };
+		5471C8751C76A29D00463AC5 /* CLRDrawInRectTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5471C8741C76A29D00463AC5 /* CLRDrawInRectTest.m */; };
+		5471C8791C76A56300463AC5 /* test2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5471C8781C76A56300463AC5 /* test2.jpg */; };
 		54ABD57F1C60BBF400FE3089 /* CLRPloygonImageViewNew.m in Sources */ = {isa = PBXBuildFile; fileRef = 54ABD57E1C60BBF400FE3089 /* CLRPloygonImageViewNew.m */; };
 		54ABD5C21C61F3EA00FE3089 /* ANImageBitmapRep.m in Sources */ = {isa = PBXBuildFile; fileRef = 54ABD5851C61F3EA00FE3089 /* ANImageBitmapRep.m */; };
 		54ABD5C31C61F3EA00FE3089 /* BitmapContextRep.m in Sources */ = {isa = PBXBuildFile; fileRef = 54ABD5871C61F3EA00FE3089 /* BitmapContextRep.m */; };
@@ -73,6 +76,10 @@
 		54ABD5DD1C61F3EA00FE3089 /* RSSelectionLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 54ABD5BE1C61F3EA00FE3089 /* RSSelectionLayer.m */; };
 		54ABD5DE1C61F3EA00FE3089 /* ColorPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54ABD5C11C61F3EA00FE3089 /* ColorPickerView.m */; };
 		54ABD5E11C61F47300FE3089 /* CloverScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 54ABD5E01C61F47300FE3089 /* CloverScreen.m */; };
+		54BF94301C9BA8DD00DA3623 /* UIImageView+Capture.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BF942F1C9BA8DD00DA3623 /* UIImageView+Capture.m */; };
+		54BF94371C9F998F00DA3623 /* CLRCutImageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BF94361C9F998F00DA3623 /* CLRCutImageScrollView.m */; };
+		54BF943C1C9F9DEC00DA3623 /* CLRCutImageRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BF943B1C9F9DEC00DA3623 /* CLRCutImageRootView.m */; };
+		54BF943F1C9F9E1700DA3623 /* CLRCutImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BF943E1C9F9E1700DA3623 /* CLRCutImageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +136,8 @@
 
 /* Begin PBXFileReference section */
 		541548EA1C74369700835B25 /* 箭头.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "箭头.png"; sourceTree = "<group>"; };
+		541548ED1C75947800835B25 /* CLRDrawImageColorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLRDrawImageColorView.h; sourceTree = "<group>"; };
+		541548EE1C75947800835B25 /* CLRDrawImageColorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLRDrawImageColorView.m; sourceTree = "<group>"; };
 		54276DC21C73C11100A79171 /* CLRDynamicView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLRDynamicView.h; path = CLRTest/CLRDynamicView.h; sourceTree = "<group>"; };
 		54276DC31C73C11100A79171 /* CLRDynamicView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLRDynamicView.m; path = CLRTest/CLRDynamicView.m; sourceTree = "<group>"; };
 		54276DC71C73C17700A79171 /* testImg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = testImg.jpg; sourceTree = "<group>"; };
@@ -172,7 +181,7 @@
 		5463343D1C5C3DA60065F7D0 /* DrawElementsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawElementsModel.h; sourceTree = "<group>"; };
 		5463343E1C5C3DA60065F7D0 /* DrawElementsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawElementsModel.m; sourceTree = "<group>"; };
 		546334431C5DBC530065F7D0 /* CLRDrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLRDrawView.h; path = SelfView/CLRDrawView.h; sourceTree = "<group>"; };
-		546334441C5DBC530065F7D0 /* CLRDrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLRDrawView.m; path = SelfView/CLRDrawView.m; sourceTree = "<group>"; };
+		546334441C5DBC530065F7D0 /* CLRDrawView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CLRDrawView.mm; path = SelfView/CLRDrawView.mm; sourceTree = "<group>"; };
 		546334461C5DC1550065F7D0 /* CLRDrawElementModelStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLRDrawElementModelStore.h; sourceTree = "<group>"; };
 		546334471C5DC1550065F7D0 /* CLRDrawElementModelStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLRDrawElementModelStore.m; sourceTree = "<group>"; };
 		546334491C5E083E0065F7D0 /* CLRSelectDrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLRSelectDrawView.h; path = SelfView/CLRSelectDrawView.h; sourceTree = "<group>"; };
@@ -188,6 +197,9 @@
 		546334621C604B360065F7D0 /* CLRPloygonImageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLRPloygonImageVC.m; path = CLRTest/CLRPloygonImageVC.m; sourceTree = "<group>"; };
 		546334641C605D440065F7D0 /* mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mask.png; sourceTree = "<group>"; };
 		546334661C6060110065F7D0 /* brows-test-sample-L-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "brows-test-sample-L-1.jpg"; sourceTree = "<group>"; };
+		5471C8731C76A29D00463AC5 /* CLRDrawInRectTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLRDrawInRectTest.h; path = CLRTest/CLRDrawInRectTest.h; sourceTree = "<group>"; };
+		5471C8741C76A29D00463AC5 /* CLRDrawInRectTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLRDrawInRectTest.m; path = CLRTest/CLRDrawInRectTest.m; sourceTree = "<group>"; };
+		5471C8781C76A56300463AC5 /* test2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test2.jpg; sourceTree = "<group>"; };
 		54ABD57D1C60BBF400FE3089 /* CLRPloygonImageViewNew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLRPloygonImageViewNew.h; path = SelfView/CLRPloygonImageViewNew.h; sourceTree = "<group>"; };
 		54ABD57E1C60BBF400FE3089 /* CLRPloygonImageViewNew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLRPloygonImageViewNew.m; path = SelfView/CLRPloygonImageViewNew.m; sourceTree = "<group>"; };
 		54ABD5841C61F3EA00FE3089 /* ANImageBitmapRep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANImageBitmapRep.h; sourceTree = "<group>"; };
@@ -250,6 +262,14 @@
 		54ABD5C11C61F3EA00FE3089 /* ColorPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorPickerView.m; sourceTree = "<group>"; };
 		54ABD5DF1C61F47300FE3089 /* CloverScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CloverScreen.h; sourceTree = "<group>"; };
 		54ABD5E01C61F47300FE3089 /* CloverScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloverScreen.m; sourceTree = "<group>"; };
+		54BF942E1C9BA8DD00DA3623 /* UIImageView+Capture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImageView+Capture.h"; path = "CLRPlug/UIImageView+Capture.h"; sourceTree = "<group>"; };
+		54BF942F1C9BA8DD00DA3623 /* UIImageView+Capture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+Capture.m"; path = "CLRPlug/UIImageView+Capture.m"; sourceTree = "<group>"; };
+		54BF94351C9F998F00DA3623 /* CLRCutImageScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLRCutImageScrollView.h; path = SelfView/CLRCutImageScrollView.h; sourceTree = "<group>"; };
+		54BF94361C9F998F00DA3623 /* CLRCutImageScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLRCutImageScrollView.m; path = SelfView/CLRCutImageScrollView.m; sourceTree = "<group>"; };
+		54BF943A1C9F9DEC00DA3623 /* CLRCutImageRootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLRCutImageRootView.h; path = SelfView/CLRCutImageRootView.h; sourceTree = "<group>"; };
+		54BF943B1C9F9DEC00DA3623 /* CLRCutImageRootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLRCutImageRootView.m; path = SelfView/CLRCutImageRootView.m; sourceTree = "<group>"; };
+		54BF943D1C9F9E1700DA3623 /* CLRCutImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLRCutImageViewController.h; path = SelfVC/CLRCutImageViewController.h; sourceTree = "<group>"; };
+		54BF943E1C9F9E1700DA3623 /* CLRCutImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLRCutImageViewController.m; path = SelfVC/CLRCutImageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -316,6 +336,7 @@
 				5463344C1C5E13500065F7D0 /* SMVSegmentedControl */,
 				542C4FC51C53764C00356873 /* DrawView */,
 				542C4FBC1C53512000356873 /* backgroundCloud.jpg */,
+				5471C8781C76A56300463AC5 /* test2.jpg */,
 				542C4FC01C535CB000356873 /* backgroundDrakCloud.jpg */,
 				5463345F1C604A5F0065F7D0 /* viewtest.jpg */,
 				546334641C605D440065F7D0 /* mask.png */,
@@ -371,6 +392,8 @@
 				54ABD5E01C61F47300FE3089 /* CloverScreen.m */,
 				542C4FAE1C532CEB00356873 /* CLRiOSPlug.h */,
 				542C4FAF1C532CEB00356873 /* CLRiOSPlug.m */,
+				54BF942E1C9BA8DD00DA3623 /* UIImageView+Capture.h */,
+				54BF942F1C9BA8DD00DA3623 /* UIImageView+Capture.m */,
 			);
 			name = CLRPlug;
 			sourceTree = "<group>";
@@ -391,6 +414,8 @@
 				542C4FC31C535EB300356873 /* CLREditViewController.m */,
 				5463341D1C59E9720065F7D0 /* CLRCameraViewController.h */,
 				5463341E1C59E9720065F7D0 /* CLRCameraViewController.m */,
+				54BF943D1C9F9E1700DA3623 /* CLRCutImageViewController.h */,
+				54BF943E1C9F9E1700DA3623 /* CLRCutImageViewController.m */,
 			);
 			name = selfVC;
 			sourceTree = "<group>";
@@ -411,12 +436,16 @@
 				546334461C5DC1550065F7D0 /* CLRDrawElementModelStore.h */,
 				546334471C5DC1550065F7D0 /* CLRDrawElementModelStore.m */,
 				546334431C5DBC530065F7D0 /* CLRDrawView.h */,
-				546334441C5DBC530065F7D0 /* CLRDrawView.m */,
+				546334441C5DBC530065F7D0 /* CLRDrawView.mm */,
 				54346F251C6958FE00402FD7 /* CLRDrawViewAndBackgroundView.h */,
 				54346F261C6958FE00402FD7 /* CLRDrawViewAndBackgroundView.m */,
 				54346F281C695A3800402FD7 /* CLRDrawBackgroundView.h */,
 				54346F291C695A3800402FD7 /* CLRDrawBackgroundView.m */,
 				54276DC71C73C17700A79171 /* testImg.jpg */,
+				54BF94351C9F998F00DA3623 /* CLRCutImageScrollView.h */,
+				54BF94361C9F998F00DA3623 /* CLRCutImageScrollView.m */,
+				54BF943A1C9F9DEC00DA3623 /* CLRCutImageRootView.h */,
+				54BF943B1C9F9DEC00DA3623 /* CLRCutImageRootView.m */,
 			);
 			name = DrawView;
 			sourceTree = "<group>";
@@ -450,6 +479,10 @@
 				546334621C604B360065F7D0 /* CLRPloygonImageVC.m */,
 				54ABD57D1C60BBF400FE3089 /* CLRPloygonImageViewNew.h */,
 				54ABD57E1C60BBF400FE3089 /* CLRPloygonImageViewNew.m */,
+				541548ED1C75947800835B25 /* CLRDrawImageColorView.h */,
+				541548EE1C75947800835B25 /* CLRDrawImageColorView.m */,
+				5471C8731C76A29D00463AC5 /* CLRDrawInRectTest.h */,
+				5471C8741C76A29D00463AC5 /* CLRDrawInRectTest.m */,
 			);
 			name = CLRTest;
 			sourceTree = "<group>";
@@ -690,6 +723,7 @@
 			files = (
 				541548EB1C74369700835B25 /* 箭头.png in Resources */,
 				546334671C6060110065F7D0 /* brows-test-sample-L-1.jpg in Resources */,
+				5471C8791C76A56300463AC5 /* test2.jpg in Resources */,
 				546334601C604A5F0065F7D0 /* viewtest.jpg in Resources */,
 				542C4F8A1C5328A200356873 /* LaunchScreen.storyboard in Resources */,
 				542C4FC11C535CB000356873 /* backgroundDrakCloud.jpg in Resources */,
@@ -724,10 +758,12 @@
 			files = (
 				54ABD5D11C61F3EA00FE3089 /* CloverColorLayer.m in Sources */,
 				5463343F1C5C3DA60065F7D0 /* DrawElementsModel.m in Sources */,
-				546334451C5DBC530065F7D0 /* CLRDrawView.m in Sources */,
+				546334451C5DBC530065F7D0 /* CLRDrawView.mm in Sources */,
 				54ABD5D21C61F3EA00FE3089 /* CloverOpacitySliderBackgroundLayer.m in Sources */,
+				5471C8751C76A29D00463AC5 /* CLRDrawInRectTest.m in Sources */,
 				54ABD5D91C61F3EA00FE3089 /* RSColorPickerState.m in Sources */,
 				54ABD5DE1C61F3EA00FE3089 /* ColorPickerView.m in Sources */,
+				54BF943F1C9F9E1700DA3623 /* CLRCutImageViewController.m in Sources */,
 				542C4FCF1C53911000356873 /* CLRSmoothedBIView.m in Sources */,
 				54ABD5D51C61F3EA00FE3089 /* MaskLayer.m in Sources */,
 				542C4F821C5328A200356873 /* ViewController.m in Sources */,
@@ -741,6 +777,7 @@
 				54276DC41C73C11100A79171 /* CLRDynamicView.m in Sources */,
 				54ABD5CC1C61F3EA00FE3089 /* BitmapRotationManipulator.m in Sources */,
 				54ABD5D81C61F3EA00FE3089 /* RSColorPickerLoopView.m in Sources */,
+				541548EF1C75947800835B25 /* CLRDrawImageColorView.m in Sources */,
 				5463344B1C5E083E0065F7D0 /* CLRSelectDrawView.m in Sources */,
 				54ABD5CF1C61F3EA00FE3089 /* BrightnessAndSaturationView.m in Sources */,
 				54ABD5C61C61F3EA00FE3089 /* UIImage+ANImageBitmapRep.m in Sources */,
@@ -748,6 +785,7 @@
 				54ABD5C31C61F3EA00FE3089 /* BitmapContextRep.m in Sources */,
 				546334531C5F082F0065F7D0 /* CLRSelectLineWidthView.m in Sources */,
 				54ABD5D71C61F3EA00FE3089 /* RSColorFunctions.m in Sources */,
+				54BF94371C9F998F00DA3623 /* CLRCutImageScrollView.m in Sources */,
 				5463345E1C6049A90065F7D0 /* CLRPloygonImageView.m in Sources */,
 				542C4FCA1C53765800356873 /* DrawView.m in Sources */,
 				542C4FCB1C53765800356873 /* DrawViewModel.m in Sources */,
@@ -758,10 +796,12 @@
 				5463341F1C59E9720065F7D0 /* CLRCameraViewController.m in Sources */,
 				54ABD5CA1C61F3EA00FE3089 /* BitmapCropManipulator.m in Sources */,
 				54346F221C67969600402FD7 /* UIImage+Rotate.m in Sources */,
+				54BF943C1C9F9DEC00DA3623 /* CLRCutImageRootView.m in Sources */,
 				54ABD5C41C61F3EA00FE3089 /* NSImage+ANImageBitmapRep.m in Sources */,
 				54ABD57F1C60BBF400FE3089 /* CLRPloygonImageViewNew.m in Sources */,
 				546334481C5DC1550065F7D0 /* CLRDrawElementModelStore.m in Sources */,
 				54ABD5C91C61F3EA00FE3089 /* BitmapContextManipulator.m in Sources */,
+				54BF94301C9BA8DD00DA3623 /* UIImageView+Capture.m in Sources */,
 				546334631C604B360065F7D0 /* CLRPloygonImageVC.m in Sources */,
 				54ABD5C51C61F3EA00FE3089 /* OSCommonImage.m in Sources */,
 				542C4F7F1C5328A200356873 /* AppDelegate.m in Sources */,

@@ -50,6 +50,11 @@
     [_mDrawView updateBackgroundImage:image];
 }
 
+- (UIImage *)getDrawImage
+{
+    return [_mDrawView getResultImage];
+}
+
 - (void)redo
 {
     [_mDrawView redo];

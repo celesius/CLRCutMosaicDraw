@@ -7,7 +7,9 @@
 //
 
 #import "CLRDrawView.h"
+#import "CLRDynamicView.h"
 #import <GPUImage.h>
+#import "UIImageView+Capture.h"
 
 typedef enum mProcessingType {
     TypeRedo,
@@ -15,11 +17,12 @@ typedef enum mProcessingType {
     TypeCount
 } ProcessingType;
 
-@interface CLRDrawView ()
+@interface CLRDrawView () <UITextViewDelegate>
 {
     UIBezierPath *drawPath;
-   
+    
     UIImage *incrementalImage;
+    UIImageView *backgroundImageView;
     
     CGMutablePathRef cgPath;
     CGPoint pts[5];
@@ -37,6 +40,21 @@ typedef enum mProcessingType {
     UIImage *rectImage;
     CGRect tmpRect;
     BOOL isMove;
+    CLRDynamicView *arrowView;
+    CGRect arrowViewOrgRect;
+    
+    CGPoint arrowOrigin;
+    CGFloat arrowHeightScale;
+    CGFloat arrowWeidth;
+    CGFloat arrowAngle;
+    
+    UIImageView *m_ArrowDrawView;
+   // UIBarButtonItem *m_keyboardTopBarButtonItem;
+    UIToolbar *m_KeyboardToolbar;
+    UITextView *m_TextView;
+    UITextView *m_WillCloseTextView;
+    BOOL m_EnableLayoutTextView;
+    
 }
 
 @property (nonatomic, readwrite) CLRDrawElementModelStore *currentDrawModel;
@@ -58,8 +76,30 @@ typedef enum mProcessingType {
         self.currentDrawModel = [CLRDrawElementModelStore sharedStore];
         currentStoreIndex = 0;
         [self.currentDrawModel initStoreArray];
+        arrowViewOrgRect = CGRectMake(0, 0, 20, 40);
+        [self initKeyBoardTopBar];
+        m_EnableLayoutTextView = YES;
+        //backgroundImageView = [[UIImageView alloc]initWithFrame:self.bounds];
+        //[self addSubview:backgroundImageView];
     }
     return self;
+}
+
+
+- (void)initKeyBoardTopBar
+{
+    m_KeyboardToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0,  CGRectGetWidth([UIScreen mainScreen].bounds) , 30)];
+    [ m_KeyboardToolbar setBarStyle:UIBarStyleDefault];
+    /*
+     UIBarButtonItem * helloButton = [[UIBarButtonItem alloc]initWithTitle:@"Hello" style:UIBarButtonItemStyleBordered target:self action:nil];
+     UIBarButtonItem * btnSpace = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+     */
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(dismissKeyBoard:)];
+    UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    //NSArray * buttonsArray = [NSArray arrayWithObjects:helloButton,btnSpace,doneButton,nil];
+    NSArray *buttonsArray = [NSArray arrayWithObjects:flexibleSpace,doneButton,nil];
+    
+    [m_KeyboardToolbar setItems:buttonsArray];
 }
 
 - (void)updateBackgroundImage:(UIImage *)image
@@ -72,10 +112,24 @@ typedef enum mProcessingType {
 
 - (void)initBackgroundImage
 {
-    UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, [UIScreen mainScreen].scale);//[UIScreen mainScreen].scale);
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, 0.0);//[UIScreen mainScreen].scale);
     [incrementalImage drawInRect:self.bounds];
     incrementalImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
+}
+/**
+ *  截取当前view内容
+ *
+ *  @return 返回图片
+ */
+- (UIImage *)capture {
+    //    UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, [UIScreen mainScreen].scale);
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, 0.0);
+    //[self drawViewHierarchyInRect:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height) afterScreenUpdates:NO];
+    [self.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
 }
 
 #pragma mark -redo逻辑
@@ -87,6 +141,8 @@ typedef enum mProcessingType {
 {
     incrementalImage = backgroundImage;
     [self initBackgroundImage];
+    [arrowView removeFromSuperview];
+    
     //[self setNeedsDisplay];
     if(currentStoreIndex != 0){
         currentStoreIndex--;
@@ -105,27 +161,32 @@ typedef enum mProcessingType {
     }
 }
 
+- (UIImage *)getResultImage
+{
+    return incrementalImage;
+}
+
 - (void)processingDrawByIndex:(NSInteger) index andType:(ProcessingType) pType
 {
     NSInteger currentModelStoreQuantity = [self.currentDrawModel getElementModelStoreQuantity];
-   
+    
     NSInteger indexBuffer = index;
     DrawElementsModel *model;
     CLRElementType modelType;
     SubParameter *modelParamter;
-
+    
     switch (pType) {
         case TypeRedo:
             /*
-            while (indexBuffer > 0) {
-                indexBuffer --;
-                model = [self.currentDrawModel getModelByNum:indexBuffer];
-                modelType = [model getType];
-                modelParamter = [model getParameter];
-                [self drawImageByType:modelType andParamter:modelParamter];
-            }*/
-             //while (indexBuffer > 0) {
-                //indexBuffer --;
+             while (indexBuffer > 0) {
+             indexBuffer --;
+             model = [self.currentDrawModel getModelByNum:indexBuffer];
+             modelType = [model getType];
+             modelParamter = [model getParameter];
+             [self drawImageByType:modelType andParamter:modelParamter];
+             }*/
+            //while (indexBuffer > 0) {
+            //indexBuffer --;
             for (NSInteger i = 0; i< indexBuffer; i++) {
                 model = [self.currentDrawModel getModelByNum:i];
                 modelType = [model getType];
@@ -135,10 +196,10 @@ typedef enum mProcessingType {
             break;
         case TypeUndo:
             //while (!(indexBuffer > currentStoreIndex)) {
-                model = [self.currentDrawModel getModelByNum:indexBuffer - 1];
-                modelType = [model getType];
-                modelParamter = [model getParameter];
-                [self drawImageByType:modelType andParamter:modelParamter];
+            model = [self.currentDrawModel getModelByNum:indexBuffer - 1];
+            modelType = [model getType];
+            modelParamter = [model getParameter];
+            [self drawImageByType:modelType andParamter:modelParamter];
             //    indexBuffer ++;
             //}
             break;
@@ -148,8 +209,8 @@ typedef enum mProcessingType {
     
     [self setNeedsDisplay];
     /*
-    for (NSInteger indexBuffer = index; indexBuffer > 0; indexBuffer --) {
-    }
+     for (NSInteger indexBuffer = index; indexBuffer > 0; indexBuffer --) {
+     }
      */
 }
 
@@ -197,6 +258,25 @@ typedef enum mProcessingType {
             incrementalImage = UIGraphicsGetImageFromCurrentImageContext();
             UIGraphicsEndImageContext();
             break;
+        case TypeArrow:
+            NSLog(@"%@", NSStringFromCGPoint(modelParamter.mArrow.origin));
+            NSLog(@"%f", modelParamter.mArrow.heightScale);
+            NSLog(@"%f", modelParamter.mArrow.weidth);
+            NSLog(@"%f", modelParamter.mArrow.angle);
+            
+            //UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, [UIScreen mainScreen].scale);
+            //[incrementalImage drawInRect:self.bounds];
+            //incrementalImage = UIGraphicsGetImageFromCurrentImageContext();
+            //UIGraphicsEndImageContext();
+            
+            [self drawArrowByArrowParameter:modelParamter.mArrow];
+            //incrementalImage = [self capture];
+            //[arrowView removeFromSuperview];
+            //[arrowView removeFromSuperview];
+            break;
+        case TypeText:
+            [self drawTextViewByParameter:modelParamter];
+            break;
         default:
             break;
     }
@@ -205,7 +285,15 @@ typedef enum mProcessingType {
 - (void)drawRect:(CGRect)rect
 {
     //NSLog(@"drawRect");
-    [incrementalImage drawInRect:rect];
+    //CGContextRef context = UIGraphicsGetCurrentContext();
+    //[self drawView:context];
+    //UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, 0.0);
+    /**
+     *  这个会引起图像的退化，后续看看如何处理 这个可以用一个uiimageview替换
+     */
+    [incrementalImage drawAsPatternInRect:rect];
+    //UIGraphicsEndImageContext();
+    //backgroundImageView.image = incrementalImage;
     
     switch (self.currentDrawModel.currentElmentType) {
         case TypeLine:
@@ -221,6 +309,7 @@ typedef enum mProcessingType {
             break;
         case TypeBlur:
         case TypeMosaic:
+        case TypeText:
             [[UIColor colorWithWhite:0.5 alpha:0.5] setFill];
             [drawPath fill];
             [drawPath removeAllPoints];
@@ -233,8 +322,6 @@ typedef enum mProcessingType {
             break;
         case TypeArrow:
             break;
-        case TypeText:
-            break;
         default:
             [drawPath stroke];
             [drawPath removeAllPoints];
@@ -245,15 +332,15 @@ typedef enum mProcessingType {
 - (void)drawBitmap
 {
     NSLog(@"bitmap");
-    UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, [UIScreen mainScreen].scale);//[UIScreen mainScreen].scale);
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, 0.0);//[UIScreen mainScreen].scale);
     if (!incrementalImage) // first time; paint background white
     {
         UIBezierPath *rectpath = [UIBezierPath bezierPathWithRect:self.bounds];
-        [[UIColor clearColor] setFill];
+        [[UIColor whiteColor] setFill];
         //[rectpath  fillWithBlendMode:kCGBlendModeNormal alpha:0.5];//fillWithBlendMode:kCGBlendModeClear alpha:0.1];
         [rectpath fill];
     }
-    [incrementalImage drawInRect:self.bounds];
+    [incrementalImage drawAsPatternInRect:self.bounds];
     
     switch (self.currentDrawModel.currentElmentType) {
         case TypeMosaic:
@@ -285,7 +372,7 @@ typedef enum mProcessingType {
     UITouch *touch = [touches anyObject];
     CGPoint location = [touch locationInView:self];
     isMove = NO;
-   // [drawPath moveToPoint:location];
+    // [drawPath moveToPoint:location];
     ctr = 0;
     pts[0] = location;
     rectStart = location;
@@ -294,9 +381,15 @@ typedef enum mProcessingType {
         case TypeShiXinCircle:
             drawPath = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0,0,0,0)];
             break;
-        //case TypeUserLine:
-        //    drawPath = [UIBezierPath bezierPath];
-        //    break;
+            //case TypeUserLine:
+            //    drawPath = [UIBezierPath bezierPath];
+            //    break;
+        case TypeArrow:
+            arrowView = [[CLRDynamicView alloc]initWithFrame:arrowViewOrgRect];
+            arrowView.center = location;
+            arrowView.layer.anchorPoint = CGPointMake(0.5, 0);
+            [self addSubview:arrowView];
+            break;
         default:
             drawPath = [UIBezierPath bezierPathWithRect:CGRectMake(0, 0, 0, 0)];
             break;
@@ -308,6 +401,12 @@ typedef enum mProcessingType {
 {
     UITouch *touch = [touches anyObject];
     CGPoint p = [touch locationInView:self];
+    CGPoint location = p;
+    CGPoint center = rectStart;
+    CGFloat height = sqrt( ((p.x - center.x) * (p.x - center.x) + (p.y - center.y) * (p.y - center.y)) );
+    
+    CGFloat oriH = arrowViewOrgRect.size.height;
+    
     topRight = CGPointMake(p.x, rectStart.y);
     bottomLift = CGPointMake(rectStart.x, p.y);
     
@@ -341,6 +440,7 @@ typedef enum mProcessingType {
         case TypeMosaic:
         case TypeShiXinRectangle:
         case TyperRectangle:
+        case TypeText:
             [drawPath moveToPoint:rectStart];
             [drawPath addLineToPoint:topRight];
             [drawPath addLineToPoint:rectPass];
@@ -357,7 +457,25 @@ typedef enum mProcessingType {
             drawPath = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(rectStart.x,rectStart.y, rectPass.x - rectStart.x, rectPass.y - rectStart.y)];
             [drawPath setLineWidth:self.currentDrawModel.currentSubParamenter.mLineWidth];
             [self setNeedsDisplay];
-            
+            break;
+        case TypeArrow:
+            if(location.x < center.x){
+                if(location.x != center.x){
+                    arrowAngle = (90*(M_PI/180.0)) +  atan( (location.y - center.y)/(location.x - center.x) );
+                    arrowView.transform = CGAffineTransformMakeRotation( arrowAngle );
+                    arrowView.transform = CGAffineTransformScale( arrowView.transform, 1, height/oriH );
+                }
+            } else {
+                if(location.x != center.x){
+                    arrowAngle = atan((location.y - center.y)/(location.x - center.x)) - (90*(M_PI/180.0));
+                    arrowView.transform = CGAffineTransformMakeRotation( arrowAngle );
+                    arrowView.transform = CGAffineTransformScale( arrowView.transform, 1, height/oriH );
+                }
+            }
+            arrowHeightScale = height/oriH;
+            arrowWeidth = CGRectGetWidth(arrowView.bounds);
+            arrowOrigin = center;
+            //self.currentDrawModel.currentSubParamenter.mArrow.angle = 0.1;
             break;
         default:
             break;
@@ -368,6 +486,8 @@ typedef enum mProcessingType {
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     //CGRect pickerRect;
+    UITextView *a_Label;
+    UIToolbar * topView;
     switch (self.currentDrawModel.currentElmentType) {
         case TypeLine:
             [drawPath moveToPoint:rectStart];
@@ -403,9 +523,25 @@ typedef enum mProcessingType {
             self.currentDrawModel.currentSubParamenter.mElementRect = [self rectMakeByPoint1:rectStart andPoint2:rectPass];
             rectImage = [self getBlurByRect:self.currentDrawModel.currentSubParamenter.mElementRect];
             break;
+        case TypeArrow:
+            self.currentDrawModel.currentSubParamenter.mArrow = CLRArrowMake(arrowOrigin, arrowHeightScale, arrowWeidth, arrowAngle);
+            [self drawArrowToImg:[self capture]];
+            break;
+        case TypeText:
+            if(isMove && m_EnableLayoutTextView)
+                [self layoutTextViewByFrame:CGRectMake(rectStart.x,rectStart.y, rectPass.x - rectStart.x, rectPass.y - rectStart.y)];
+            self.currentDrawModel.currentSubParamenter.mElementRect =[self rectMakeByPoint1:rectStart andPoint2:rectPass];
+            break;
         default:
             break;
     }
+    if(self.currentDrawModel.currentElmentType != TypeText){
+        [self storeDrawModelAndUpdateImage];
+    }
+}
+
+- (void)storeDrawModelAndUpdateImage
+{
     [self.currentDrawModel storeCurrentOperateAt:currentStoreIndex];
     currentStoreIndex++;
     if(isMove){
@@ -414,6 +550,15 @@ typedef enum mProcessingType {
     }
     [drawPath removeAllPoints];
     ctr = 0;
+}
+
+- (void)drawArrowToImg:(UIImage *)image
+{
+    NSLog(@"%@",image);
+    NSLog(@"%@",incrementalImage);
+    incrementalImage = image;
+    [self initBackgroundImage];
+    [arrowView removeFromSuperview];
 }
 
 - (CGRect) rectMakeByPoint1:(CGPoint) point1 andPoint2:(CGPoint) point2
@@ -468,9 +613,9 @@ typedef enum mProcessingType {
     CGImageRef imgRef = CGImageCreateWithImageInRect(incrementalImage.CGImage, CGRectMake(setRect.origin.x*processFloat, setRect.origin.y*processFloat, setRect.size.width*processFloat, setRect.size.height*processFloat));
     UIImage *processingImage = [UIImage imageWithCGImage:imgRef];
     CGImageRelease(imgRef);
-//    GPUImagePixellateFilter *mMFilter = [[GPUImagePixellateFilter alloc]init];
+    //    GPUImagePixellateFilter *mMFilter = [[GPUImagePixellateFilter alloc]init];
     GPUImageiOSBlurFilter *mMFilter = [[GPUImageiOSBlurFilter alloc]init];
-
+    
     mMFilter.blurRadiusInPixels = 3.0;
     mMFilter.saturation = 0.6;
     mMFilter.rangeReductionFactor = self.currentDrawModel.currentSubParamenter.mBlurIntensity ;
@@ -481,31 +626,137 @@ typedef enum mProcessingType {
     [pic processImage];
     processingImage  = [mMFilter imageFromCurrentFramebuffer];
     return processingImage;
-    
-    
 }
 
-- (void) drawImageByRedo
+- (void) drawArrowByArrowParameter:( ArrowParameter )arrowParameter
 {
-    NSInteger modelNum = [self.currentDrawModel getElementModelStoreQuantity];
+    m_ArrowDrawView = [[UIImageView alloc]initWithFrame:self.bounds];
+    m_ArrowDrawView.image = incrementalImage;
+    arrowView = [[CLRDynamicView alloc]initWithFrame:arrowViewOrgRect];
+    arrowView.center = arrowParameter.origin;
+    arrowView.layer.anchorPoint = CGPointMake(0.5, 0);
+    [m_ArrowDrawView addSubview:arrowView];
+    arrowView.transform = CGAffineTransformMakeRotation( arrowParameter.angle);
+    arrowView.transform = CGAffineTransformScale( arrowView.transform, 1, arrowParameter.heightScale );
+    incrementalImage = [m_ArrowDrawView capture];
+    [arrowView removeFromSuperview];
+    //[self drawArrowToImg:incrementalImage];
+}
+
+- (void) drawTextViewByParameter:(SubParameter *)parameter
+{
+    m_ArrowDrawView = [[UIImageView alloc]initWithFrame:self.bounds];
+    m_ArrowDrawView.image = incrementalImage;
+
+    m_TextView = [[UITextView alloc]initWithFrame:parameter.mElementRect];
+    m_TextView.scrollEnabled = NO;
+    m_TextView.scrollsToTop = YES;
+    m_TextView.font = [UIFont systemFontOfSize:parameter.mTextSize];
+    m_TextView.text = parameter.mTextString;
+    m_TextView.textColor = parameter.mElementColor;
+    m_TextView.backgroundColor = [UIColor clearColor];
+    
+    [m_ArrowDrawView addSubview:m_TextView];
+    incrementalImage = [m_ArrowDrawView capture];
+    [m_TextView removeFromSuperview];
 }
 
 - (void)drawView:(CGContextRef)context
 {
-    if(backgroundImage && !isDrawBack){
-        UIImage *drawImage = [UIImage imageWithCGImage:backgroundImage.CGImage scale:[UIScreen mainScreen].scale orientation:UIImageOrientationDown];
-        isDrawBack = YES;
-        CGRect rect = self.bounds;
-        
-        CGContextSaveGState(context);
-        
-        CGContextTranslateCTM(context, rect.origin.x, rect.origin.y);
-        CGContextTranslateCTM(context, 0, rect.size.height);
-        CGContextScaleCTM(context, 1.0, -1.0);
-        CGContextTranslateCTM(context, -rect.origin.x, -rect.origin.y);
-        CGContextDrawImage(context, rect, drawImage.CGImage);
-        CGContextRestoreGState(context);
-    }
+    //if(backgroundImage && !isDrawBack){
+    
+    isDrawBack = YES;
+    CGRect rect = self.bounds;
+    
+    CGContextSaveGState(context);
+    
+    CGContextTranslateCTM(context, rect.origin.x, rect.origin.y);
+    CGContextTranslateCTM(context, 0, rect.size.height);
+    CGContextScaleCTM(context, 1.0, -1.0);
+    CGContextTranslateCTM(context, -rect.origin.x, -rect.origin.y);
+    CGContextDrawImage(context, rect, incrementalImage.CGImage);
+    CGContextRestoreGState(context);
+    //}
 }
+
+- (void)layoutTextViewByFrame:(CGRect)layoutFrame
+{
+    m_TextView = [[UITextView alloc]initWithFrame:layoutFrame];
+    m_TextView.scrollEnabled = NO;
+    //m_TextView.scrollsToTop = YES;
+    m_TextView.backgroundColor = [UIColor yellowColor];
+    m_TextView.delegate = self;
+    m_TextView.textAlignment = NSTextAlignmentLeft;
+    m_TextView.font = [UIFont systemFontOfSize:self.currentDrawModel.currentSubParamenter.mTextSize];
+    m_TextView.textColor = self.currentDrawModel.currentSubParamenter.mElementColor;
+    m_TextView.layoutManager.allowsNonContiguousLayout = YES;
+    [self addSubview:m_TextView];
+    
+    [m_TextView setInputAccessoryView:m_KeyboardToolbar];
+    
+    [m_TextView becomeFirstResponder];
+}
+
+- (void)dismissKeyBoard:(id)sender
+{
+    [m_WillCloseTextView resignFirstResponder];
+}
+
+- (void)textViewDidChangeSelection:(UITextView *)textView
+{
+    //NSLog(@"textViewDidChangeSelection");
+    //NSLog(@"%@",textView);
+}
+
+- (void)textViewDidChange:(UITextView *)textView
+{
+    //NSLog(@"textViewDidChange");
+    //NSLog(@"%@",textView);
+}
+
+/**
+ *  保证可关闭的是当前的textView
+ *
+ *  @param textView
+ */
+- (void)textViewDidBeginEditing:(UITextView *)textView
+{
+    m_WillCloseTextView = textView;
+    m_EnableLayoutTextView = NO;
+    NSLog(@"textViewDidBeginEditing");
+    
+    NSLog(@"%d",self.userInteractionEnabled);
+    //if (self.userInteractionEnabled) {
+    //    self.userInteractionEnabled = NO;
+    //}
+    
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+    m_EnableLayoutTextView = YES;
+    self.currentDrawModel.currentSubParamenter.mTextString = textView.text;
+    incrementalImage = [self capture];
+    [self storeDrawModelAndUpdateImage];
+    [textView removeFromSuperview];
+    
+    //self.userInteractionEnabled = YES;
+    NSLog(@"textViewDidEndEditing");
+}
+
+
+//- (void)textFieldDidBeginEditing:(UITextField *)textField
+//{
+//}
+//
+//- (void)textFieldDidEndEditing:(UITextField *)textField
+//{
+//}
+//
+//- (BOOL)textFieldShouldReturn:(UITextField *)textField
+//{
+//    [textField resignFirstResponder];
+//    return YES;
+//}
 
 @end

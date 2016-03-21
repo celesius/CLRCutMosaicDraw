@@ -87,7 +87,7 @@
 
 - (DrawElementsModel *) getModelByNum:(NSInteger)num
 {
-    NSLog(@"%d",num);
+    NSLog(@"%ld",(long)num);
     return [self.modelStoreArray objectAtIndex:num];
 }
 

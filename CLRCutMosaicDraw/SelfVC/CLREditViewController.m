@@ -15,9 +15,17 @@
 #import "CLRSelectDrawView.h"
 #import "CLRDrawElementModelStore.h"
 #import "CLRSelectLineWidthView.h"
+#import "CLRCutImageViewController.h"
 
 
-@interface CLREditViewController ()
+#define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
+#define SYSTEM_VERSION_GREATER_THAN(v)              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
+
+
+@interface CLREditViewController () <UIAlertViewDelegate>
 {
     CLRSelectDrawView *_mSelectDrawView;
     CLRSelectLineWidthView *_mSelectLineWidthView;
@@ -50,12 +58,22 @@
     [backButton addTarget:self action:@selector(backButtonFoo:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:backButton];
     
+    UIButton *saveButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    saveButton.frame =CGRectMake( (CGRectGetWidth([UIScreen mainScreen].bounds) - 50.0), 0.0 , 50, 50);
+    saveButton.backgroundColor = [UIColor grayColor];
+    saveButton.titleLabel.font = backButton.titleLabel.font;
+    [saveButton setTitle:@"保存" forState:UIControlStateNormal];
+    [saveButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [saveButton addTarget:self action:@selector(saveButtonFoo:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:saveButton];
+    
+    
     //    CGRect  viewRect = CGRectMake(0, CGRectGetMaxY(backButton.frame), CGRectGetWidth([CLRiOSPlug screenRect]),  CGRectGetHeight([CLRiOSPlug screenRect]) - CGRectGetHeight(backButton.frame));
     float drawViewWH =  CGRectGetWidth([CLRiOSPlug screenRect])/CGRectGetHeight([CLRiOSPlug screenRect]);
     float drawViewH = CGRectGetHeight(self.view.bounds) - toolBarHight - CGRectGetHeight(backButton.bounds);
     float drawViewW = drawViewH*drawViewWH;
     
-    CGRect  viewRect = CGRectMake( (CGRectGetWidth(self.view.bounds) - drawViewW)/2.0, CGRectGetMaxY(backButton.frame), drawViewW, drawViewH);
+    CGRect  viewRect = CGRectMake( ceilf((CGRectGetWidth(self.view.bounds) - drawViewW)/2.0), floorf(CGRectGetMaxY(backButton.frame)), ceilf((drawViewW)), ceilf(drawViewH));
     
     if(_mDrawView == nil){
         _mDrawView = [[CLRDrawViewAndBackgroundView alloc]initWithFrame:viewRect];
@@ -63,7 +81,6 @@
         _mDrawView.backgroundColor = [UIColor whiteColor];
         [self.view addSubview:_mDrawView];
     }
-    
     
     self.mToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, CGRectGetHeight(self.view.bounds) - toolBarHight, CGRectGetWidth(self.view.bounds), toolBarHight)];
     [self.view addSubview:self.mToolbar];
@@ -99,8 +116,6 @@
     [self.view addSubview:_mSelectLineWidthView];
     _mSelectLineWidthView.hidden = YES;
     _mSelectLineWidthView.alpha = 0.0;
-    
-    
 }
 
 - (BOOL)prefersStatusBarHidden
@@ -119,13 +134,18 @@
     }
 }
 
-
+/**
+ *  设置背景图片
+ *
+ *  @param srcImage 读取的图片
+ *  其中需要向上取整保证操作时图片不退化
+ */
 - (void)setSrcImage:(UIImage *)srcImage
 {
     _srcImage = srcImage;
     float viewWH = _srcImage.size.width / _srcImage.size.height;
-    float viewW = CGRectGetWidth(self.view.bounds)*9.0/10.0;
-    float viewH = viewW/viewWH;
+    float viewW = ceilf(CGRectGetWidth(self.view.bounds)*9.0/10.0);
+    float viewH = ceilf(viewW/viewWH);
     
     //CGPoint pointBuffer = self.
     //self.drawView
@@ -148,7 +168,7 @@
     
 }
 
-- (void)backButtonFoo:(id)sender
+- (void)pullVC
 {
     CLREditViewController *__weak weakSelf = self;
     [self dismissViewControllerAnimated:YES
@@ -156,6 +176,75 @@
                                  NSLog(@" CLREditViewController dismissViewController");
                              }];
 }
+
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error
+  contextInfo:(void *)contextInfo
+{
+    // Was there an error?
+    NSString *msg = nil;
+    if (error != NULL)
+    {
+        // Show error message...
+        msg = @"保存失败,请打开访问相册授权";
+    }
+    else  // No errors
+    {
+        msg = @"保存成功,已经保存至相册";
+        //[self pullVC];
+        // Show message image successfully saved
+    }
+    
+    /*
+
+    */
+    
+    if(SYSTEM_VERSION_LESS_THAN(@"9.0"))
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"保存图片结果提示"
+                                                        message:msg
+                                                       delegate:self
+                                              cancelButtonTitle:@"确定"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+    
+    if(SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"9.0")){
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"保存图片提示" message:msg preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                              handler:^(UIAlertAction * action) {
+                                                                  [self pullVC];
+                                                              }];
+        [alert addAction:defaultAction];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
+     //[alert show];
+    
+    
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    [self pullVC];
+}
+
+- (void)saveImageToPhotosAlbum:(UIImage *)image
+{
+    UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+}
+
+
+
+- (void)backButtonFoo:(id)sender
+{
+    [self pullVC];
+}
+
+- (void)saveButtonFoo:(id)sender
+{
+    [self saveImageToPhotosAlbum:[_mDrawView getDrawImage]];
+}
+
 
 - (void)b1ButtonFoo:(id)sender
 {
@@ -184,7 +273,9 @@
 
 - (void)cutImageButtonFoo:(id)sender
 {
-    
+    CLRCutImageViewController *cutImageVC = [[CLRCutImageViewController alloc]init];
+    cutImageVC.inputImage = [_mDrawView getDrawImage];
+    [self presentViewController:cutImageVC animated:YES completion:nil];
 }
 
 - (void)redoButtonFoo:(id)sender

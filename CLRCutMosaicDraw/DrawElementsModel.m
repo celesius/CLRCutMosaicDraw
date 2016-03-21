@@ -41,6 +41,10 @@
          *  各元素的颜色
          */
         self.mElementColor = [UIColor blackColor];
+        /**
+         *  TextView内容
+         */
+        self.mTextString = @"初始化字符串";
     }
     return self;
 }
@@ -58,6 +62,8 @@
     copy.mPath = self.mPath;
     copy.mElementColor = self.mElementColor;
     copy.mElementRect = self.mElementRect;
+    copy.mArrow = self.mArrow;
+    copy.mTextString = self.mTextString;
     return copy;
     
 }

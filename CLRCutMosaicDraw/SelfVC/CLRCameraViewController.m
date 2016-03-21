@@ -40,7 +40,7 @@
     [captureButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [captureButton addTarget:self action:@selector(captureButtonFoo:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:captureButton];
-    
+   
 }
 
 - (void)viewWillAppear:(BOOL)animated

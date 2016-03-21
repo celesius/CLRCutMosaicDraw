@@ -1,14 +1,15 @@
 //
-//  CLRDynamicView.h
+//  UIImageView+Capture.h
 //  CLRCutMosaicDraw
 //
-//  Created by vk on 16/2/17.
+//  Created by vk on 16/3/18.
 //  Copyright © 2016年 clover. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface CLRDynamicView : UIView
+@interface UIImageView(Capture)
 
 - (UIImage *)capture;
+
 @end

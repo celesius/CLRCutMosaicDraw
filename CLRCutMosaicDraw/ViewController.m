@@ -122,7 +122,25 @@ static float offsetValue = 25.0;
 - (void)greatNewCanvas
 {
     CLREditViewController *clrEditVC = [[CLREditViewController alloc]init];
+    UIImage *image = [self createImageByColor:[UIColor yellowColor]];
+    clrEditVC.srcImage = image;
+    
     [self presentViewController:clrEditVC animated:YES completion:nil];
+}
+
+- (UIImage *)createImageByColor:(UIColor *)color
+{
+    UIImage *createImage;
+    CGRect imageRect = CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), ceilf(CGRectGetWidth([UIScreen mainScreen].bounds)*4.0/3.0)  );
+    UIGraphicsBeginImageContextWithOptions(imageRect.size, self.view.opaque, 0.0);//[UIScreen mainScreen].scale);
+    UIBezierPath *rectpath = [UIBezierPath bezierPathWithRect:imageRect];
+    [color setFill];
+    //[rectpath  fillWithBlendMode:kCGBlendModeNormal alpha:0.5];//fillWithBlendMode:kCGBlendModeClear alpha:0.1];
+    [rectpath fill];
+    [createImage drawAsPatternInRect:imageRect];
+    createImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return createImage;
 }
 
 - (void)galleryButtonFoo:(id)sender

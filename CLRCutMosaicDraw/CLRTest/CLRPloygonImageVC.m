@@ -10,14 +10,27 @@
 #import "CLRPloygonImageView.h"
 #import "CLRPloygonImageViewNew.h"
 #import "CLRiOSPlug.h"
+#import "CLRDrawImageColorView.h"
+#import "CLRDrawInRectTest.h"
 
 @implementation CLRPloygonImageVC
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    CLRPloygonImageViewNew *gIV = [[CLRPloygonImageViewNew alloc]initWithFrame:self.view.bounds];
-    [self.view addSubview:gIV];
+    //CLRPloygonImageViewNew *gIV = [[CLRPloygonImageViewNew alloc]initWithFrame:self.view.bounds];
+    //[self.view addSubview:gIV];
+    //CLRDrawImageColorView *mView = [[CLRDrawImageColorView alloc]initWithFrame:self.view.bounds];
+    
+    
+    
+    CGRect rect = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), ceil(CGRectGetWidth(self.view.bounds)*4/3));
+    
+    CLRDrawInRectTest *mView = [[CLRDrawInRectTest alloc]initWithFrame:rect];
+    mView.center = self.view.center;
+    mView.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor grayColor];
+    [self.view addSubview:mView];
 }
 
 - (BOOL)prefersStatusBarHidden
