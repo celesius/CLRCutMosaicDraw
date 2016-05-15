@@ -11,7 +11,6 @@
 @interface CLRCutImageScrollView()
 {
     UIImageView *m_SrcImageView;
-
 }
 
 @end
